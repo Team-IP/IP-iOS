@@ -10,6 +10,8 @@ import SwiftUI
 struct VoteCell: View {
     @State var showSheet: Bool = false
     
+    @StateObject var voteViewModel = VoteViewModel()
+      
     var body: some View {
         ZStack(alignment: .top, content: {
             Rectangle()
@@ -21,12 +23,12 @@ struct VoteCell: View {
             VStack(content: {
                 
                 // 투표 질문 View
-                VoteHeader()
+                VoteHeader(voteViewModel: voteViewModel)
                     .padding(EdgeInsets(top: 20, leading: 70, bottom: 20, trailing: 70))
                 
                 
                 // 투표 항목 List View
-                VoteBody()
+                VoteBody(voteViewModel: voteViewModel)
                     .padding(.horizontal, 60)
                 
                 

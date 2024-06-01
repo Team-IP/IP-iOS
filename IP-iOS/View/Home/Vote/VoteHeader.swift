@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct VoteHeader: View {
+    @ObservedObject var voteViewModel : VoteViewModel
+    
     var body: some View {
         HStack(content: {
             VStack(alignment: .leading, content: {
-                Text("투표 질문")
+                Text(voteViewModel.voteHeaderTitle)
                     .bold()
                     .font(.title2)
-                Text("남은 기간, 시간")
+                Text(voteViewModel.voteHeaderTimeremaining)
                 
               
             })
             Spacer()
             
             VStack {
-                Text("🌱걸린")
-                Text("잎/상품")
+                Text(voteViewModel.voteHeaderIPGoods)
+                Text(voteViewModel.voteHeaderIPcount)
             }
         })  //:HSTACK
     }
 }
 
 #Preview {
-    VoteHeader()
+    VoteHeader(voteViewModel: VoteViewModel())
 }
