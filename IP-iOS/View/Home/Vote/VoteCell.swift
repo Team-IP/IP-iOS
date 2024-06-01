@@ -12,16 +12,16 @@ struct VoteCell: View {
     @State var showSheet: Bool = false
     
     @ObservedObject var voteViewModel: VoteViewModel
-      
+    
     var body: some View {
         ZStack(alignment: .top, content: {
             Rectangle()
-                .frame(width: 330, height: 280)
+                .frame(width: 330, height: 260)
                 .cornerRadius(20)
                 .foregroundColor(Color(.white))
-                .shadow(radius: 10)
+                .shadow(color: .black.opacity(0.1), radius: 15)
             
-            VStack(content: {
+            VStack{
                 
                 // 투표 질문 View
                 VoteHeader(voteViewModel: voteViewModel)
@@ -33,11 +33,11 @@ struct VoteCell: View {
                     .padding(.horizontal, 60)
                 
                 
-            })
-            
+            }
             
         })
-   
+
+        
         .onTapGesture {
             showSheet.toggle()
         }

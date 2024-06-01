@@ -71,6 +71,7 @@ private struct VoteDetailBody: View {
             
             VoteButton(voteViewModel: voteViewModel)
                 .padding(.bottom)
+                .frame(height: 150)
             
             HStack(content: {
                 HStack {

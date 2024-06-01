@@ -51,9 +51,19 @@ struct IfView: View {
                     IfTopBar(path: $path)
                     SegmentedControl(selectedSegment: $selectedSegment)
                     List {
-
                         ForEach(ifCategories) { item in
-                            VoteCell(voteViewModel: viewModel)
+                            VoteCell(voteViewModel: VoteViewModel(
+                                isLoading: true,
+                                voteHeaderTitle: item.title,
+                                 voteHeaderTimeremaining: "2024-07-01까지 참여해보세요🔥",
+                                voteHeaderIPGoods: "\(item.ipAmount ?? 0)잎",
+                                voteBodyParticipantCount: "\(item.voteCount)명 참여",
+                                voteDetaildescription: item.content ?? "",
+                                voteChoiceFirst: item.firstOption,
+                                voteChoiceSecond: item.secondOption,
+                                 isFirstButtonSelected: true,
+                                 isSecondButtonSelected: false
+                            ))
                                 .frame(height: 300)
                                 .listRowSeparator(.hidden)
                                 .background(Color.clear)

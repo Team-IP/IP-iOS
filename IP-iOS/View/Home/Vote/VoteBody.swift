@@ -17,8 +17,14 @@ struct VoteBody: View {
             VoteButton(voteViewModel: voteViewModel)
             
             VStack(content: {
-                Text("\(voteViewModel.voteBodyParticipantCount) 명 참여")
+                HStack {
+                    Spacer()
+                    Text("\(voteViewModel.voteBodyParticipantCount)")
+                        .setDefaultFont(size: 13, weight: .regular)
+                        .foregroundColor(.gray)
+                }
             })
+            .padding(.horizontal, 15)
             
             
             

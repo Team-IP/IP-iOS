@@ -91,7 +91,54 @@ class IfCategoryService {
         switch response.result {
         case .success(let surveyResponse):
             if surveyResponse.isSuccess {
-                return surveyResponse.result.surveyList
+                
+                let detailCount = surveyResponse.result.surveyList.map { $0.surveyId }
+                // nested
+                var detailContents = [String]()
+                
+                for (index, id) in detailCount.enumerated() {
+                    let detailURL = baseURL + "/ip/detail" // Replace with actual detail endpoint
+                    let dataTaskDetail = AF.request(
+                        detailURL,
+                        method: .get,
+                        parameters: ["surveyId": id],
+                        headers: headers
+                    ).serializingDecodable(SurveyDetailResponseDTO.self)
+                    
+                    let responseDetail = await dataTaskDetail.response
+                    
+                    switch responseDetail.result {
+                    case .success(let surveyDetailResponse):
+                        if surveyDetailResponse.isSuccess {
+                            detailContents.append( surveyDetailResponse.result.content ?? ""
+                           )
+                        } else {
+                            let error = NSError(domain: "", code: surveyDetailResponse.code, userInfo: [NSLocalizedDescriptionKey: surveyDetailResponse.message])
+                            throw error
+                        }
+                    case .failure(let error):
+                        throw error
+                    }
+                }
+                
+                let newSurvey = surveyResponse.result.surveyList
+                let newSurveyDetail = newSurvey.enumerated().map { (index, survey) in
+                    return IfCategoryDTO(
+                        surveyId: survey.surveyId,
+                        title: survey.title,
+                        firstOption: survey.firstOption,
+                        secondOption: survey.secondOption,
+                        ipAmount: survey.ipAmount,
+                        prize: survey.prize,
+                        endAt: survey.endAt,
+                        voteCount: survey.voteCount,
+                        content: detailContents[index],
+                        category: survey.category,
+                        ip: survey.ip
+                    )
+                }
+            
+                return newSurveyDetail
             } else {
                 let error = NSError(domain: "", code: surveyResponse.code, userInfo: [NSLocalizedDescriptionKey: surveyResponse.message])
                 throw error
