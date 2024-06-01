@@ -33,6 +33,10 @@ final class AddVotingViewController: UIViewController {
         setupButton()
     }
     
+    @objc private func allButtonTapped() {
+        print("전체버튼 클릭")
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -51,7 +55,7 @@ extension AddVotingViewController {
          view.secondVotingItemTextField,
          view.deadLineTextField,
          view.bettingTextField,
-         view.categoryTextField].forEach { $0.delegate = self }
+        ].forEach { $0.delegate = self }
         
         setupDatePicker(for: view.deadLineTextField, datePicker: view.datePicker) // 날짜 피커뷰 설정
     }
@@ -83,6 +87,17 @@ extension AddVotingViewController {
         self.addVotingView.uploadButton.addTarget(self,
                                                   action: #selector(uploadButtonTapped),
                                                   for: .touchUpInside)
+        let categorys = [
+            addVotingView.categoryView.allButton,
+            addVotingView.categoryView.loveButton,
+            addVotingView.categoryView.economyButton,
+            addVotingView.categoryView.sportsButton,
+            addVotingView.categoryView.dailyButton
+        ]
+        
+        categorys.forEach {
+            $0.addTarget(self, action: #selector(categorysButtonTapped(_:)), for: .touchUpInside)
+        }
     }
     
     // 툴바에 완료버튼 삽입
@@ -121,6 +136,28 @@ extension AddVotingViewController {
     @objc private func dismissPickerView() {
         view.endEditing(true)
     }
+    
+    @objc private func categorysButtonTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            print("전체 버튼 클릭")
+            self.addVotingView.categoryView.allButton.setImage(UIImage(named: "ic_all_full"), for: .normal)
+        case 1:
+            print("사랑 버튼 클릭")
+            self.addVotingView.categoryView.loveButton.setImage(UIImage(named: "ic_love_full"), for: .normal)
+        case 2:
+            print("경제 버튼 클릭")
+            self.addVotingView.categoryView.economyButton.setImage(UIImage(named: "ic_economy_full"), for: .normal)
+        case 3:
+            print("스포츠 버튼 클릭")
+            self.addVotingView.categoryView.sportsButton.setImage(UIImage(named: "ic_sports_full"), for: .normal)
+        case 4:
+            print("일상 버튼 클릭")
+            self.addVotingView.categoryView.dailyButton.setImage(UIImage(named: "ic_daily_full"), for: .normal)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -133,5 +170,16 @@ extension AddVotingViewController: UITextFieldDelegate {
 
 // MARK: - UITextViewDelegate
 extension AddVotingViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard textView.textColor == .placeholderText else { return }
+        textView.textColor = .label
+        textView.text = nil
+    }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "지금 무슨 상황인가요?!"
+            textView.textColor = .placeholderText
+        }
+    }
 }
