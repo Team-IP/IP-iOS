@@ -13,15 +13,16 @@ struct VoteCell: View {
     var body: some View {
         ZStack(alignment: .top, content: {
             Rectangle()
-                .frame(width: 330, height: 300)
+                .frame(width: 330, height: 250)
                 .cornerRadius(20)
-                .foregroundColor(Color(.lightGray))
+                .foregroundColor(Color(.white))
+                .shadow(radius: 10)
             
             VStack(content: {
                 
                 // 투표 질문 View
                 VoteHeader()
-                    .padding(EdgeInsets(top: 20, leading: 60, bottom: 20, trailing: 60))
+                    .padding(EdgeInsets(top: 20, leading: 70, bottom: 20, trailing: 70))
                 
                 
                 // 투표 항목 List View
