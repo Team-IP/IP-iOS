@@ -50,6 +50,7 @@
 		561DD2362C0AF0F200C662E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC42E0872C0AF30B008B7336 /* TabBar */,
 				561DD23A2C0AF10D00C662E2 /* ViewTest.swift */,
 			);
 			path = View;
@@ -61,6 +62,13 @@
 				561DD2382C0AF10600C662E2 /* ServiceTest.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BC42E0872C0AF30B008B7336 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		BC653D542C0ADF190058AD4B = {
@@ -82,14 +90,14 @@
 		BC653D5F2C0ADF1A0058AD4B /* IP-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				561DD2372C0AF0F600C662E2 /* Service */,
-				561DD2362C0AF0F200C662E2 /* View */,
-				BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */,
 				BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */,
+				BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */,
 				BC653D642C0ADF1A0058AD4B /* ViewController.swift */,
 				BC653D692C0ADF1B0058AD4B /* Assets.xcassets */,
 				BC653D6B2C0ADF1B0058AD4B /* LaunchScreen.storyboard */,
 				BC653D6E2C0ADF1B0058AD4B /* Info.plist */,
+				561DD2372C0AF0F600C662E2 /* Service */,
+				561DD2362C0AF0F200C662E2 /* View */,
 			);
 			path = "IP-iOS";
 			sourceTree = "<group>";
