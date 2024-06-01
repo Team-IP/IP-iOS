@@ -10,6 +10,8 @@ import IQKeyboardManagerSwift
 
 final class AddVotingViewController: UIViewController {
     // MARK: - Properties
+    private var selectedButtonTag: Int?
+    
     private let addVotingView = AddVotingView()
     
     // MARK: - View 설정
@@ -58,6 +60,7 @@ extension AddVotingViewController {
         ].forEach { $0.delegate = self }
         
         setupDatePicker(for: view.deadLineTextField, datePicker: view.datePicker) // 날짜 피커뷰 설정
+        view.bettingTextField.inputAccessoryView = createToolbar()
     }
     
     // 데이트 피커뷰
@@ -122,6 +125,56 @@ extension AddVotingViewController {
     // 업로드 버튼
     @objc private func uploadButtonTapped() {
         print("업로드버튼 눌림")
+        
+        guard let title = addVotingView.titleTextField.text, title != "",
+              let content = addVotingView.descriptionTextView.text, content != "",
+              let firstOption = addVotingView.firstVotingItemTextField.text, firstOption != "",
+              let secondOption = addVotingView.secondVotingItemTextField.text, secondOption != "",
+              let endAt = addVotingView.deadLineTextField.text, endAt != "",
+              let ipAmount = addVotingView.bettingTextField.text, ipAmount != "" else {
+            print("빈 칸 있음")
+            return
+        }
+        
+        guard let selectedButtonTag = self.selectedButtonTag else {
+            print("버튼 안눌름")
+            return
+        }
+        
+        var category = ""
+        
+        switch selectedButtonTag {
+        case 0:
+            category = "NONE"
+        case 1:
+            category = "ENTER"
+        case 2:
+            category = "ECONOMY"
+        case 3:
+            category = "SPORT"
+        case 4:
+            category = "DAILY"
+        default:
+            return
+        }
+        
+        let parameters = AddVotingRequestDto(title: title,
+                                             content: content,
+                                             firstOption: firstOption,
+                                             secondOption: secondOption,
+                                             endAt: endAt,
+                                             category: category,
+                                             ipAmount: Int(ipAmount) ?? 0)
+        
+        print(parameters)
+        
+        AddVotingService.shared.postPurchase(parameters: parameters) { error in
+            if let error = error {
+                print("투표 생성 실패: \(error.localizedDescription)")
+            } else {
+                print("투표 생성 성공")
+            }
+        }
     }
     
     // 데이트 피커뷰
@@ -138,24 +191,41 @@ extension AddVotingViewController {
     }
     
     @objc private func categorysButtonTapped(_ sender: UIButton) {
-        switch sender.tag {
+        // 이전에 선택된 버튼의 이미지를 clear로 설정
+        if let previousTag = selectedButtonTag, let previousButton = view.viewWithTag(previousTag) as? UIButton {
+            previousButton.setImage(UIImage(named: "ic_\(buttonName(for: previousTag))_clear"), for: .normal)
+        }
+        
+        // 현재 선택된 버튼의 태그 업데이트
+        selectedButtonTag = sender.tag
+        
+        // 모든 버튼의 이미지를 clear로 설정
+        for button in addVotingView.categoryView.subviews where button is UIButton {
+            if let button = button as? UIButton {
+                button.setImage(UIImage(named: "ic_\(buttonName(for: button.tag))_clear"), for: .normal)
+            }
+        }
+        
+        // 선택된 버튼의 이미지를 full로 설정
+        sender.setImage(UIImage(named: "ic_\(buttonName(for: sender.tag))_full"), for: .normal)
+        
+        print("Selected button tag: \(selectedButtonTag ?? -1)")
+    }
+    
+    private func buttonName(for tag: Int) -> String {
+        switch tag {
         case 0:
-            print("전체 버튼 클릭")
-            self.addVotingView.categoryView.allButton.setImage(UIImage(named: "ic_all_full"), for: .normal)
+            return "all"
         case 1:
-            print("사랑 버튼 클릭")
-            self.addVotingView.categoryView.loveButton.setImage(UIImage(named: "ic_love_full"), for: .normal)
+            return "love"
         case 2:
-            print("경제 버튼 클릭")
-            self.addVotingView.categoryView.economyButton.setImage(UIImage(named: "ic_economy_full"), for: .normal)
+            return "economy"
         case 3:
-            print("스포츠 버튼 클릭")
-            self.addVotingView.categoryView.sportsButton.setImage(UIImage(named: "ic_sports_full"), for: .normal)
+            return "sports"
         case 4:
-            print("일상 버튼 클릭")
-            self.addVotingView.categoryView.dailyButton.setImage(UIImage(named: "ic_daily_full"), for: .normal)
+            return "daily"
         default:
-            break
+            return ""
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum Segment: String, CaseIterable {
     case all = "전체"
@@ -13,6 +14,22 @@ enum Segment: String, CaseIterable {
     case economy = "경제/주식"
     case sports = "스포츠"
     case content = "일상"
+    
+    var eng: String? {
+        switch(self) {
+            
+        case .all:
+            nil
+        case .romance:
+            "ENTER"
+        case .economy:
+            "ECONOMY"
+        case .sports:
+            "SPORT"
+        case .content:
+            "DAILY"
+        }
+    }
 }
 
 struct IfView: View {
@@ -22,6 +39,9 @@ struct IfView: View {
     @State private var isFloatingButtonOn: Bool = false
     @State private var isRefreshing: Bool = false
     
+    @State private var ifCategories: [IfCategoryDTO] = []
+    @State private var pageNumber: Int = 0
+    
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
@@ -29,19 +49,34 @@ struct IfView: View {
                     IfTopBar(path: $path)
                     SegmentedControl(selectedSegment: $selectedSegment)
                     List {
-//                        VoteCell()
-//                            .listRowSeparator(.hidden)
-//                            .background(Color.clear)
-//                        VoteCell()
-//                            .listRowSeparator(.hidden)
-//                        VoteCell()
-//                            .listRowSeparator(.hidden)
+
+                        ForEach(ifCategories) { item in
+                            VoteCell()
+                                .frame(height: 300)
+                                .listRowSeparator(.hidden)
+                                .background(Color.clear)
+                                .onAppear {
+                                    if item == ifCategories.last {
+                                        Task {
+                                            await loadMoreData()
+                                        }
+                                    }
+                                }
+                        }
+
                     }
-                    .listStyle(.inset)
+                    .listStyle(.plain)
                     .refreshable {
+                        pageNumber = 0
                         await refreshData()
                     }
-                    .background(.ipBackground)
+                }
+                .background(.ipBackground)
+                .onReceive(Just(selectedSegment)) { _ in
+                    pageNumber = 0
+                    Task {
+                        await refreshData()
+                    }
                 }
                 
                 if isFloatingButtonOn {
@@ -69,9 +104,13 @@ struct IfView: View {
                         EmptyView()
                     }
                 }
-                
             }
             .background(.ipBackground)
+            .onAppear() {
+                Task {
+                    await refreshData()
+                }
+            }
         }
     }
     
@@ -86,14 +125,38 @@ struct IfView: View {
     private func refreshData() async {
         // 데이터 새로고침 로직
         isRefreshing = true
-        print("Refreshing data...")
-        // 예: 네트워크 요청을 통해 데이터를 가져옵니다.
-        // await someNetworkCall()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            isRefreshing = false
+        
+        do {
+            let fetchedCategories = try await IfCategoryService.shared.fetch(
+                category: selectedSegment.eng,
+                pageNumber: "\(pageNumber)"
+            )
+            print(fetchedCategories)
+            self.ifCategories = fetchedCategories
+            pageNumber += 1
+        } catch {
+            print(error)
         }
+        
+        isRefreshing = false
     }
     
+    private func loadMoreData() async {
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        do {
+            let fetchedCategories = try await IfCategoryService.shared.fetch(
+                category: selectedSegment.eng,
+                pageNumber: "\(pageNumber)"
+            )
+            print(fetchedCategories)
+            self.ifCategories.append(contentsOf: fetchedCategories)
+            pageNumber += 1
+        } catch {
+            print(error)
+        }
+        isRefreshing = false
+    }
 }
 
 struct IfView_Previews: PreviewProvider {
