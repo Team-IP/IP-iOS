@@ -28,6 +28,12 @@ final class AddVotingService {
     func postPurchase(parameters: AddVotingRequestDto,
                       completion: @escaping (Error?) -> Void) {
         
+//        let token = UserDefaults.standard.string(forKey: "token")!
+//        
+//        let headers: HTTPHeaders = [
+//            "Authorization": "Bearer \(token)"
+//        ]
+        
         AF.request("\(baseURL)/survey",
                    method: .post,
                    parameters: parameters,

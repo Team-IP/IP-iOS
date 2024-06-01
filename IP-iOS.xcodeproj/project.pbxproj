@@ -13,6 +13,7 @@
 		561DD24C2C0B108D00C662E2 /* AddVotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD24B2C0B108D00C662E2 /* AddVotingViewController.swift */; };
 		561DD2512C0B8A4900C662E2 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD2502C0B8A4900C662E2 /* CategoryView.swift */; };
 		561DD2532C0BA0C400C662E2 /* AddVotingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD2522C0BA0C400C662E2 /* AddVotingService.swift */; };
+		561DD2552C0BCC7F00C662E2 /* NotEnoughAleartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD2542C0BCC7F00C662E2 /* NotEnoughAleartView.swift */; };
 		642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8512C0B0978001FC5D5 /* VoteBody.swift */; };
 		642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8522C0B0978001FC5D5 /* VoteCell.swift */; };
 		642CB8592C0B0978001FC5D5 /* VoteHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8532C0B0978001FC5D5 /* VoteHeader.swift */; };
@@ -74,6 +75,7 @@
 		561DD24B2C0B108D00C662E2 /* AddVotingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVotingViewController.swift; sourceTree = "<group>"; };
 		561DD2502C0B8A4900C662E2 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		561DD2522C0BA0C400C662E2 /* AddVotingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVotingService.swift; sourceTree = "<group>"; };
+		561DD2542C0BCC7F00C662E2 /* NotEnoughAleartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotEnoughAleartView.swift; sourceTree = "<group>"; };
 		642CB8512C0B0978001FC5D5 /* VoteBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteBody.swift; sourceTree = "<group>"; };
 		642CB8522C0B0978001FC5D5 /* VoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteCell.swift; sourceTree = "<group>"; };
 		642CB8532C0B0978001FC5D5 /* VoteHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteHeader.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				561DD2492C0B107D00C662E2 /* AddVotingView.swift */,
 				561DD2502C0B8A4900C662E2 /* CategoryView.swift */,
+				561DD2542C0BCC7F00C662E2 /* NotEnoughAleartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561DD2552C0BCC7F00C662E2 /* NotEnoughAleartView.swift in Sources */,
 				561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */,
 				BC42E0CB2C0B4311008B7336 /* Color+Extension.swift in Sources */,
 				BC42E0E62C0B4D7E008B7336 /* FloatingButton.swift in Sources */,

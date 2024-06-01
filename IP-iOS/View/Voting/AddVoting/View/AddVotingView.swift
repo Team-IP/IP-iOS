@@ -17,7 +17,7 @@ final class AddVotingView: UIView {
         $0.keyboardDismissMode = .onDrag // 스크롤 시 키보드 숨김
     }
     
-    private lazy var contentView = UIView()
+    lazy var contentView = UIView()
     
     private lazy var titleLabel = UILabel().then {
         $0.text = "새 투표 생성하기"
@@ -47,7 +47,7 @@ final class AddVotingView: UIView {
     }
     
     lazy var titleWarningLabel = UILabel().then {
-        $0.text = "*20자 이내로 입력가능해주세요."
+        $0.text = "*20자 이내로 입력 해주세요."
         $0.textColor = UIColor(red: 0.7804, green: 0.7804, blue: 0.7804, alpha: 1.0)
         $0.setDefaultFont(size: 10, weight: .regular)
     }
@@ -141,6 +141,12 @@ final class AddVotingView: UIView {
         $0.backgroundColor = .black
     }
     
+    lazy var deadLineWarningLabel = UILabel().then {
+        $0.text = "*투표마감 날짜를 선택 해주세요."
+        $0.textColor = UIColor(red: 0.7804, green: 0.7804, blue: 0.7804, alpha: 1.0)
+        $0.setDefaultFont(size: 10, weight: .regular)
+    }
+    
     // 베팅 잎
     lazy var bettingTextField = UITextField().then {
         $0.placeholder = "베팅 잎을 입력해주세요."
@@ -179,6 +185,20 @@ final class AddVotingView: UIView {
         $0.setImage(UIImage(named: "img_uploadButton"), for: .normal)
     }
     
+    lazy var overlayView = UIView().then {
+        $0.isHidden = true
+        $0.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    }
+    
+    // 잎 부족 경고창
+    lazy var notEnoughAleartView = NotEnoughAleartView().then {
+        $0.isHidden = true
+    }
+    
+    lazy var grayLine = UIView().then {
+        $0.backgroundColor = .systemGray6
+    }
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -196,7 +216,9 @@ final class AddVotingView: UIView {
     private func addViews() {
         self.addSubviews([
             scrollView,
-            bottomView
+            bottomView,
+            overlayView,
+            notEnoughAleartView // 잎 부족 경고창
         ])
         
         scrollView.addSubview(contentView) // 동적 스크롤뷰
@@ -228,6 +250,7 @@ final class AddVotingView: UIView {
             // 투표 마감일
             deadLineTextFieldView,
             blackLine1,
+            deadLineWarningLabel,
 
             // 베팅 잎
             bettingTextField,
@@ -243,9 +266,25 @@ final class AddVotingView: UIView {
         deadLineTextFieldView.addSubview(calendarIcon)
         
         bottomView.addSubview(uploadButton)
+        bottomView.addSubview(grayLine)
+        
     }
     
     private func configureConstraints() {
+        grayLine.snp.makeConstraints { make in
+            make.height.equalTo(2)
+            make.top.leading.trailing.equalTo(bottomView)
+        }
+        overlayView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        // 잎 부족 경고창
+        notEnoughAleartView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(255)
+            make.leading.trailing.equalToSuperview().inset(40)
+        }
+        
         // 스크롤뷰
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
@@ -367,10 +406,15 @@ final class AddVotingView: UIView {
             make.leading.trailing.equalTo(titleTextFieldView)
         }
         
+        deadLineWarningLabel.snp.makeConstraints { make in
+            make.top.equalTo(blackLine1.snp.bottom).offset(5)
+            make.leading.trailing.equalTo(titleTextFieldView)
+        }
+        
         // 베팅 잎
         bettingTextField.snp.makeConstraints { make in
             make.height.equalTo(30)
-            make.top.equalTo(blackLine1.snp.bottom).offset(30)
+            make.top.equalTo(deadLineWarningLabel.snp.bottom).offset(11)
             make.leading.equalTo(contentView).inset(35)
             make.trailing.equalTo(bettingLabel.snp.leading).offset(-8)
         }
