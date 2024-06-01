@@ -9,21 +9,22 @@ import SwiftUI
 
 struct VoteButton: View {
     
-    @State private var isFirstButtonSelected: Bool = false
-    @State private var isSecondButtonSelected: Bool = false
+    @ObservedObject var voteViewModel : VoteViewModel
+    
+  
     
     var body: some View {
         VStack {
             // 찬성
             Button(action: {
-                isFirstButtonSelected = true
-                isSecondButtonSelected = false
+                voteViewModel.isFirstButtonSelected = true
+                voteViewModel.isSecondButtonSelected = false
             }) {
                 ZStack {
                     Rectangle()
                         .frame(width: UIScreen.main.bounds.width * 0.8, height: 50) // 화면 너비의 80%
                         .cornerRadius(8)
-                        .foregroundColor(isFirstButtonSelected ? .ipLine : .white)
+                        .foregroundColor( voteViewModel.isFirstButtonSelected ? .ipLine : .white)
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -34,10 +35,10 @@ struct VoteButton: View {
                         Circle()
                             .frame(width: 35)
                             .foregroundColor(.ipPrimary)
-                        Text("투표 항목")
+                        Text(voteViewModel.voteChoiceFirst)
                             .font(.headline)
                             .bold()
-                            .foregroundColor(isFirstButtonSelected ? .gray : .ipLine)
+                            .foregroundColor( voteViewModel.isFirstButtonSelected ? .gray : .ipLine)
                             .padding(.trailing, UIScreen.main.bounds.width * 0.4)
                            
                     }
@@ -46,14 +47,14 @@ struct VoteButton: View {
             
             
             Button(action: {
-                isFirstButtonSelected = false
-                isSecondButtonSelected = true
+                voteViewModel.isFirstButtonSelected = false
+                voteViewModel.isSecondButtonSelected = true
             }) {
                 ZStack {
                     Rectangle()
                         .frame(width: UIScreen.main.bounds.width * 0.8, height: 50) // 화면 너비의 80%
                         .cornerRadius(8)
-                        .foregroundColor(isSecondButtonSelected ? .ipLine : .white)
+                        .foregroundColor( voteViewModel.isSecondButtonSelected ? .ipLine : .white)
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
@@ -64,10 +65,10 @@ struct VoteButton: View {
                         Circle()
                             .frame(width: 35)
                             .foregroundColor(.ipPrimary)
-                        Text("투표 항목")
+                        Text(voteViewModel.voteChoiceSecond)
                             .font(.headline)
                             .bold()
-                            .foregroundColor(isSecondButtonSelected ? .gray : .ipLine)
+                            .foregroundColor( voteViewModel.isSecondButtonSelected ? .gray : .ipLine)
                             .padding(.trailing, UIScreen.main.bounds.width * 0.4)
                     }
                 }
@@ -81,5 +82,5 @@ struct VoteButton: View {
 }
 
 #Preview {
-    VoteButton()
+    VoteButton(voteViewModel: VoteViewModel())
 }

@@ -14,10 +14,10 @@ struct VoteBody: View {
     var body: some View {
         VStack(alignment:.leading, content: {
             
-            VoteButton()
+            VoteButton(voteViewModel: voteViewModel)
             
             VStack(content: {
-                Text(voteViewModel.voteBodyParticipantCount)
+                Text("\(voteViewModel.voteBodyParticipantCount) 명 참여")
             })
             
             

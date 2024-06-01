@@ -9,15 +9,15 @@ import SwiftUI
 
 struct VoteDetail: View {
     
-    @State var inputText: String = "두 주 전에 만난 남자인 친구와 함께 몇 번의 모임을 가지면서 서로의 취미와 관심사를 공유하게 되었습니다. 그러던 중, 친구가 최근에 연애 상담을 요청하며 다른 사람에게 호감을 가지고 있다고 말했습니다. 그 순간, 당신은 그 친구에게 호감을 느끼고 있음을 깨닫게 되었고, 그가 말한 사람이 혹시 자신일지도 모른다는 희망을 품게 되었습니다. 하지만 만약 그가 다른 사람을 좋아한다면 고백이 친구 관계를 망칠까 봐 고민하게 됩니다."
+    @ObservedObject var voteViewModel : VoteViewModel
     
     var body: some View {
         ScrollView {
             VStack {
-                VoteDetailHandler(inputText: $inputText)
+                VoteDetailHandler(voteViewModel: voteViewModel)
                     .padding(.top, 50)
                 
-                VoteDetailBody()
+                VoteDetailBody(voteViewModel: voteViewModel)
                 
                 
             }
@@ -26,25 +26,25 @@ struct VoteDetail: View {
 }
 
 private struct VoteDetailHandler: View {
-    @Binding var inputText: String  // 바인딩 변수
+    @ObservedObject var voteViewModel : VoteViewModel
     
     fileprivate var body: some View {
         
         VStack(alignment:.leading){
             HStack {
-                Text("썸남한테 고백할까 말까")
+                Text(voteViewModel.voteHeaderTitle)
                     .font(.title)
                     .bold()
                 Spacer()
-                Text("🌱 30잎")
+                Text(voteViewModel.voteHeaderIPcount)
                     .bold()
             }
             
-            Text("2024-06-02까지 참여해보세요🔥")
+            Text(voteViewModel.voteHeaderTimeremaining)
                 .padding(.bottom)
             
             // TexEditor 여러줄 - 긴글 의 text 를 입력할때 사용
-            TextEditor(text: $inputText)
+            TextEditor(text: $voteViewModel.voteDetaildescription)
                 .frame(height: 250) // 크기 설정
             //.colorMultiply(Color.gray.opacity(0.3))
         }
@@ -54,16 +54,17 @@ private struct VoteDetailHandler: View {
 
 private struct VoteDetailBody: View {
     
+    @ObservedObject var voteViewModel : VoteViewModel
     fileprivate var body: some View {
         
         VStack(){
             
-            VoteButton()
+            VoteButton(voteViewModel: voteViewModel)
                 .padding(.bottom)
             
             HStack(content: {
                 HStack {
-                    Text("3870")
+                    Text(voteViewModel.voteBodyParticipantCount)
                         .font(.title)
                         .bold()
                         .foregroundStyle(Color(.ipLine))
@@ -95,5 +96,5 @@ private struct VoteDetailBody: View {
 
 
 #Preview {
-    VoteDetail()
+    VoteDetail(voteViewModel: VoteViewModel())
 }

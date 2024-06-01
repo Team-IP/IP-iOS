@@ -15,7 +15,7 @@ struct VoteCell: View {
     var body: some View {
         ZStack(alignment: .top, content: {
             Rectangle()
-                .frame(width: 330, height: 250)
+                .frame(width: 330, height: 280)
                 .cornerRadius(20)
                 .foregroundColor(Color(.white))
                 .shadow(radius: 10)
@@ -43,7 +43,7 @@ struct VoteCell: View {
         .sheet(isPresented: $showSheet) {
             VStack {
                 
-                VoteDetail()
+                VoteDetail(voteViewModel: voteViewModel)
                     .padding(.horizontal, 30)
             }
             
