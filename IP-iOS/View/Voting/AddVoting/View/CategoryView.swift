@@ -37,7 +37,7 @@ final class CategoryView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         
         addViews()
         configureConstraints()

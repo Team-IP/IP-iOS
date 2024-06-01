@@ -35,10 +35,6 @@ final class AddVotingViewController: UIViewController {
         setupButton()
     }
     
-    @objc private func allButtonTapped() {
-        print("전체버튼 클릭")
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -101,6 +97,13 @@ extension AddVotingViewController {
         categorys.forEach {
             $0.addTarget(self, action: #selector(categorysButtonTapped(_:)), for: .touchUpInside)
         }
+        
+        self.addVotingView.notEnoughAleartView.retryButton.addTarget(self, action: #selector(retryButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func retryButtonTapped() {
+        addVotingView.overlayView.isHidden = true
+        addVotingView.notEnoughAleartView.isHidden = true
     }
     
     // 툴바에 완료버튼 삽입
@@ -126,18 +129,51 @@ extension AddVotingViewController {
     @objc private func uploadButtonTapped() {
         print("업로드버튼 눌림")
         
-        guard let title = addVotingView.titleTextField.text, title != "",
-              let content = addVotingView.descriptionTextView.text, content != "",
+        guard let title = addVotingView.titleTextField.text,
+              let content = addVotingView.descriptionTextView.text,
+              let firstOption = addVotingView.firstVotingItemTextField.text,
+              let secondOption = addVotingView.secondVotingItemTextField.text,
+              let endAt = addVotingView.deadLineTextField.text,
+              let ipAmount = addVotingView.bettingTextField.text else { return }
+        
+        var isEmpty = false
+        
+        if title == "" {
+            print("제목 20자 넘음 or 0글자")
+            addVotingView.titleWarningLabel.textColor = .red
+            isEmpty = true
+        } else {
+            addVotingView.titleWarningLabel.textColor = UIColor(red: 0.7804, green: 0.7804, blue: 0.7804, alpha: 1.0)
+        }
+        
+        if endAt == "" {
+            print("날짜 선택 안함")
+            addVotingView.deadLineWarningLabel.textColor = .red
+            isEmpty = true
+        } else {
+            addVotingView.deadLineWarningLabel.textColor = UIColor(red: 0.7804, green: 0.7804, blue: 0.7804, alpha: 1.0)
+        }
+        
+        if ipAmount == "99999" {
+            addVotingView.overlayView.isHidden = false
+            addVotingView.notEnoughAleartView.isHidden = false
+        }
+        
+        if isEmpty {
+            return
+        }
+        
+        guard let content = addVotingView.descriptionTextView.text, content != "",
               let firstOption = addVotingView.firstVotingItemTextField.text, firstOption != "",
               let secondOption = addVotingView.secondVotingItemTextField.text, secondOption != "",
-              let endAt = addVotingView.deadLineTextField.text, endAt != "",
-              let ipAmount = addVotingView.bettingTextField.text, ipAmount != "" else {
+              
+                let ipAmount = addVotingView.bettingTextField.text, ipAmount != "" else {
             print("빈 칸 있음")
             return
         }
         
         guard let selectedButtonTag = self.selectedButtonTag else {
-            print("버튼 안눌름")
+            print("카테고리 버튼 안눌름")
             return
         }
         
@@ -251,5 +287,13 @@ extension AddVotingViewController: UITextViewDelegate {
             textView.text = "지금 무슨 상황인가요?!"
             textView.textColor = .placeholderText
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        addVotingView.descriptionTextCountLabel.text = "(\(changedText.count)/300)"
+        return changedText.count <= 300
     }
 }
