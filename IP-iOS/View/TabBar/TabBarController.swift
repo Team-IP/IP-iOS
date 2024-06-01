@@ -28,13 +28,23 @@ final class TabBarController: UITabBarController {
         // (3) Tab Bar로 사용하기 위한 뷰 컨트롤러들 설정
         setViewControllers([ifVC, homeVC, mypageVC], animated: false)
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .black
+        tabBar.tintColor = .ipLine
+        selectedIndex = 1
         
         // (4) Tab Bar 이미지 설정
         guard let items = tabBar.items else { return }
-        items[0].image = UIImage(systemName: "leaf")
-        items[1].image = UIImage(systemName: "house")
-        items[2].image = UIImage(systemName: "gear")
+        items[0].image = UIImage(named: "tabbar-leaf-line")?
+            .withRenderingMode(.alwaysOriginal)
+        items[0].selectedImage = UIImage(named: "tabbar-leaf-fill")?
+            .withRenderingMode(.alwaysOriginal)
+        items[1].image = UIImage(named: "tabbar-home-line")?
+            .withRenderingMode(.alwaysOriginal)
+        items[1].selectedImage = UIImage(named: "tabbar-home-fill")?
+            .withRenderingMode(.alwaysOriginal)
+        items[2].image = UIImage(named: "tabbar-mypage-line")?
+            .withRenderingMode(.alwaysOriginal)
+        items[2].selectedImage = UIImage(named: "tabbar-mypage-fill")?
+            .withRenderingMode(.alwaysOriginal)
     }
 }
 
