@@ -22,10 +22,18 @@ final class AddVotingView: UIView {
         $0.font = .boldSystemFont(ofSize: 25)
     }
     
+    // 로고 아이콘
+    private lazy var logoIcon = UIImageView().then {
+        $0.image = UIImage(systemName: "heart.fill")
+        $0.tintColor = .orange
+    }
+    
     // 투표 제목
     private lazy var titleTextFieldView = UIView().then {
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.green.cgColor
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     }
     
     lazy var titleTextField = UITextField().then {
@@ -37,6 +45,23 @@ final class AddVotingView: UIView {
     
     private lazy var titleWarningLabel = UILabel().then {
         $0.text = "*20자 이내로 입력가능해요"
+    }
+    
+    // 상황 설명
+    lazy var descriptionTextView = UITextView().then {
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.green.cgColor
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
+        
+        $0.autocapitalizationType = .none
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.textContainerInset = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
+    }
+    
+    lazy var descriptionTextCountLabel = UILabel().then {
+        $0.text = "0/300"
     }
     
     // 투표 항목
@@ -105,10 +130,27 @@ final class AddVotingView: UIView {
     }
     
     // 카테고리
+    private lazy var categoryTextFieldView = UIView().then {
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.green.cgColor
+    }
+    
+    lazy var categoryTextField = UITextField().then {
+        $0.placeholder = "카테고리를 선택해주세요."
+        $0.autocapitalizationType = .none
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+    }
+    
+    private lazy var categoryArrowIcon = UIImageView().then {
+        $0.image = UIImage(systemName: "arrow.down")
+    }
     
     // 업로드버튼
     lazy var uploadButton = UIButton().then {
+        $0.backgroundColor = .blue
         $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
         $0.setTitle("업로드하기", for: .normal)
     }
     
@@ -128,40 +170,64 @@ final class AddVotingView: UIView {
     // MARK: - UI
     private func addViews() {
         self.addSubviews([
-            titleLabel,
-            scrollView
+            
+            
+            scrollView,
+            uploadButton
         ])
         
-        scrollView.addSubview(contentView)
-        
+        scrollView.addSubview(contentView) // 동적 스크롤뷰
         
         contentView.addSubviews([
+            // 로고 아이콘
+            logoIcon,
+            
+            // 새 투표 생성하기
+            titleLabel,
+            
+            // 투표 제목
             titleTextFieldView,
             titleWarningLabel,
+            
+            // 상황 설명
+            descriptionTextView,
+            descriptionTextCountLabel,
+            
+            // 투표 항목
             votingItemLabel,
             firstVotingItemRoundView,
             secondVotingItemRoundView,
-            deadLineTextFieldView
+            
+            // 투표 마감일
+            deadLineTextFieldView,
+            
+            // 베팅 잎
+            bettingTextFieldView,
+            bettingWarningLabel,
+            
+            // 카테고리
+            categoryTextFieldView
         ])
         
         titleTextFieldView.addSubview(titleTextField)
+//        descriptionTextView.addSubview(descriptionTextCountLabel)
         firstVotingItemRoundView.addSubview(firstVotingItemTextField)
         secondVotingItemRoundView.addSubview(secondVotingItemTextField)
         deadLineTextFieldView.addSubview(deadLineTextField)
+        bettingTextFieldView.addSubview(bettingTextField)
+        categoryTextFieldView.addSubview(categoryTextField)
+        categoryTextFieldView.addSubview(categoryArrowIcon)
     }
     
     private func configureConstraints() {
-        // 새 투표 생성하기
-        titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(safeAreaLayoutGuide).offset(8)
-        }
+        
+        
+        
         
         // 스크롤뷰
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-//            make.bottom.equalTo(uploadButton.snp.top).offset(-20)
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(uploadButton.snp.top).offset(-20)
         }
         
         // 동적 높이를 위한 컨텐트뷰
@@ -170,9 +236,22 @@ final class AddVotingView: UIView {
             make.edges.equalTo(scrollView)
         }
         
+        // 로고 아이콘
+        logoIcon.snp.makeConstraints { make in
+            make.size.equalTo(80)
+            make.top.equalTo(contentView).offset(20)
+            make.leading.equalTo(contentView).inset(15)
+        }
+        
+        // 새 투표 생성하기
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(logoIcon.snp.bottom).offset(20)
+            make.leading.equalTo(logoIcon)
+        }
+        
         // 투표 제목
         titleTextFieldView.snp.makeConstraints { make in
-            make.top.equalTo(contentView)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.trailing.equalTo(contentView).inset(20)
             make.height.equalTo(50)
         }
@@ -186,9 +265,20 @@ final class AddVotingView: UIView {
             make.leading.trailing.equalTo(titleTextFieldView)
         }
         
+        // 상황 설명
+        descriptionTextView.snp.makeConstraints { make in
+            make.top.equalTo(titleWarningLabel).offset(40)
+            make.leading.trailing.equalTo(titleTextFieldView)
+            make.height.equalTo(150)
+        }
+        
+        descriptionTextCountLabel.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(descriptionTextView).inset(5)
+        }
+        
         // 투표 항목
         votingItemLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleWarningLabel.snp.bottom).offset(30)
+            make.top.equalTo(descriptionTextView.snp.bottom).offset(30)
             make.leading.trailing.equalTo(titleTextFieldView)
         }
         
@@ -217,11 +307,51 @@ final class AddVotingView: UIView {
             make.top.equalTo(secondVotingItemRoundView.snp.bottom).offset(40)
             make.leading.trailing.equalTo(titleTextFieldView)
             make.height.equalTo(50)
-            make.bottom.equalTo(contentView)
         }
         
         deadLineTextField.snp.makeConstraints { make in
             make.edges.equalTo(deadLineTextFieldView).inset(5)
+        }
+        
+        // 베팅 잎
+        bettingTextFieldView.snp.makeConstraints { make in
+            make.top.equalTo(deadLineTextFieldView.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(titleTextFieldView)
+            make.height.equalTo(50)
+        }
+        
+        bettingTextField.snp.makeConstraints { make in
+            make.edges.equalTo(bettingTextFieldView).inset(5)
+        }
+        
+        bettingWarningLabel.snp.makeConstraints { make in
+            make.top.equalTo(bettingTextFieldView.snp.bottom).offset(5)
+            make.leading.trailing.equalTo(titleTextFieldView)
+        }
+        
+        // 카테고리
+        categoryTextFieldView.snp.makeConstraints { make in
+            make.top.equalTo(bettingWarningLabel.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(titleTextFieldView)
+            make.height.equalTo(50)
+            make.bottom.equalTo(contentView)
+        }
+        
+        categoryTextField.snp.makeConstraints { make in
+            make.edges.equalTo(categoryTextFieldView).inset(5)
+        }
+        
+        categoryArrowIcon.snp.makeConstraints { make in
+            make.size.equalTo(20)
+            make.centerY.equalTo(categoryTextFieldView)
+            make.trailing.equalTo(categoryTextFieldView).inset(5)
+        }
+        
+        // 업로드 버튼
+        uploadButton.snp.makeConstraints { make in
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-20)
+            make.leading.trailing.equalTo(titleTextFieldView)
+            make.height.equalTo(30)
         }
     }
 }
