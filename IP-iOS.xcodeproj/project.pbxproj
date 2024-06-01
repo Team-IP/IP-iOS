@@ -46,6 +46,9 @@
 		BC42E0E72C0B4D7E008B7336 /* IfTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0E12C0B4D7E008B7336 /* IfTopBar.swift */; };
 		BC42E0E82C0B4D7E008B7336 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0E22C0B4D7E008B7336 /* SegmentedControl.swift */; };
 		BC42E0E92C0B4D7E008B7336 /* IfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0E42C0B4D7E008B7336 /* IfView.swift */; };
+		BC42E0EB2C0B858D008B7336 /* MemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EA2C0B858D008B7336 /* MemberService.swift */; };
+		BC42E0ED2C0B8D06008B7336 /* Keyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EC2C0B8D06008B7336 /* Keyboard+Extension.swift */; };
+		BC42E0EF2C0B8DB9008B7336 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EE2C0B8DB9008B7336 /* KeyboardHelper.swift */; };
 		BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */; };
 		BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */; };
 		BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D642C0ADF1A0058AD4B /* ViewController.swift */; };
@@ -95,6 +98,9 @@
 		BC42E0E12C0B4D7E008B7336 /* IfTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfTopBar.swift; sourceTree = "<group>"; };
 		BC42E0E22C0B4D7E008B7336 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		BC42E0E42C0B4D7E008B7336 /* IfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfView.swift; sourceTree = "<group>"; };
+		BC42E0EA2C0B858D008B7336 /* MemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberService.swift; sourceTree = "<group>"; };
+		BC42E0EC2C0B8D06008B7336 /* Keyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+Extension.swift"; sourceTree = "<group>"; };
+		BC42E0EE2C0B8DB9008B7336 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		BC653D5D2C0ADF190058AD4B /* IP-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IP-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				561DD2382C0AF10600C662E2 /* ServiceTest.swift */,
+				BC42E0EA2C0B858D008B7336 /* MemberService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 			children = (
 				BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */,
 				BC42E0CA2C0B4311008B7336 /* Color+Extension.swift */,
+				BC42E0EC2C0B8D06008B7336 /* Keyboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 			children = (
 				BC42E0C82C0B427D008B7336 /* IPTextField.swift */,
 				BC42E0CC2C0B4547008B7336 /* Constant.swift */,
+				BC42E0EE2C0B8DB9008B7336 /* KeyboardHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -475,6 +484,7 @@
 				561DD24A2C0B107D00C662E2 /* AddVotingView.swift in Sources */,
 				561DD24C2C0B108D00C662E2 /* AddVotingViewController.swift in Sources */,
 				561DD2392C0AF10600C662E2 /* ServiceTest.swift in Sources */,
+				BC42E0ED2C0B8D06008B7336 /* Keyboard+Extension.swift in Sources */,
 				642CB85C2C0B1595001FC5D5 /* VoteDetail.swift in Sources */,
 				BC42E08A2C0AF878008B7336 /* OnboardingView.swift in Sources */,
 				642CB8602C0B3395001FC5D5 /* VoteParticipated.swift in Sources */,
@@ -485,9 +495,11 @@
 				BC42E0AB2C0B18BB008B7336 /* MypageView.swift in Sources */,
 				BC42E0E92C0B4D7E008B7336 /* IfView.swift in Sources */,
 				BC42E0942C0AFE8D008B7336 /* Font+Extension.swift in Sources */,
+				BC42E0EB2C0B858D008B7336 /* MemberService.swift in Sources */,
 				BC42E0B52C0B1C30008B7336 /* MenuRow.swift in Sources */,
 				BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */,
 				642CB8632C0B37B4001FC5D5 /* MySettingView.swift in Sources */,
+				BC42E0EF2C0B8DB9008B7336 /* KeyboardHelper.swift in Sources */,
 				BC42E0E82C0B4D7E008B7336 /* SegmentedControl.swift in Sources */,
 				BC42E0CD2C0B4547008B7336 /* Constant.swift in Sources */,
 				642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */,

@@ -17,9 +17,15 @@ struct MenuRow: View {
                 .resizable()
                 .frame(width: 20, height: 20)
             Text(menuName)
+                .setTypo(.body2b)
             Spacer()
+            Image(systemName: "arrow.forward")
+                .resizable()
+                .frame(width: 15, height: 15)
+                .foregroundColor(.ipGray03)
         }
-        .padding()
+        .padding(.vertical, 7)
+        .padding(.horizontal, PAGE_PADDING)
         Divider()
     }
 }

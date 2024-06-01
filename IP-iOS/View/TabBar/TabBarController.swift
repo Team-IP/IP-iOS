@@ -16,12 +16,13 @@ final class TabBarController: UITabBarController {
         let ifVC = UIHostingController(rootView: IfView())
         let homeVC = UIHostingController(rootView: Home())
         let mypageVC = UIHostingController(rootView: MypageView())
+        let signupTest = UIHostingController(rootView: OnboardingView())
         
 //        ifVC.title = "이프"
 //        homeVC.title = "홈"
 //        mypageVC.title = "마이"
         
-        setViewControllers([ifVC, homeVC, mypageVC], animated: false)
+        setViewControllers([ifVC, homeVC, mypageVC, signupTest], animated: false)
         
         guard let items = tabBar.items else { return }
         items[0].image = UIImage(named: "tabbar-leaf-line")?
