@@ -34,6 +34,7 @@ struct VoteCell: View {
             
             
         })
+   
         .onTapGesture {
             showSheet.toggle()
         }
