@@ -14,15 +14,15 @@ struct VoteButton: View {
   
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             // 찬성
             Button(action: {
                 voteViewModel.isFirstButtonSelected = true
                 voteViewModel.isSecondButtonSelected = false
             }) {
-                ZStack {
+                ZStack(alignment: .center) {
                     Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 50) // 화면 너비의 80%
+                        .frame(maxHeight: 50) // 화면 너비의 80%
                         .cornerRadius(8)
                         .foregroundColor( voteViewModel.isFirstButtonSelected ? .ipLine : .white)
                         .cornerRadius(10)
@@ -49,6 +49,7 @@ struct VoteButton: View {
                             .padding(.trailing)
                         Spacer()
                     }
+                    .frame(maxWidth: 300, maxHeight: 50)
                 }
             }
             
@@ -59,7 +60,7 @@ struct VoteButton: View {
             }) {
                 ZStack {
                     Rectangle()
-                        .frame(maxWidth: .infinity, maxHeight: 50) // 화면 너비의 80%
+                        .frame(maxHeight: 50) // 화면 너비의 80%
                         .cornerRadius(8)
                         .foregroundColor( voteViewModel.isSecondButtonSelected ? .ipLine : .white)
                         .cornerRadius(10)
@@ -83,10 +84,12 @@ struct VoteButton: View {
                             .padding(.trailing)
                         Spacer()
                     }
+                    .frame(maxWidth: 300, maxHeight: 50)
                 }
                 
             }
         }
+        .padding(.horizontal, 25)
     }
 }
 

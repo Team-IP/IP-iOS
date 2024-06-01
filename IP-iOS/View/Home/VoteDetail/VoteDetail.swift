@@ -76,11 +76,11 @@ private struct VoteDetailBody: View {
             HStack(content: {
                 HStack {
                     Text(voteViewModel.voteBodyParticipantCount)
-                        .font(.title)
+                        .setTypo(.body0b)
                         .bold()
                         .foregroundStyle(Color(.ipLine))
-                    Text("명 참여")
-                        .font(.body)
+//                    Text("명 참여")
+//                        .font(.body)
                 }
                 Button(action: {
                     

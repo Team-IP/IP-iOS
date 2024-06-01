@@ -64,7 +64,7 @@ struct IfView: View {
                                  isFirstButtonSelected: true,
                                  isSecondButtonSelected: false
                             ))
-                                .frame(height: 300)
+                            .frame(height: 300)
                                 .listRowSeparator(.hidden)
                                 .background(Color.clear)
                                 .onAppear {

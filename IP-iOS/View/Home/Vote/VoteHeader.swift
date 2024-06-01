@@ -11,7 +11,7 @@ struct VoteHeader: View {
     @ObservedObject var voteViewModel : VoteViewModel
     
     var body: some View {
-        HStack(content: {
+//        HStack(content: {
             VStack(alignment: .leading, content: {
                 HStack {
                     Text(voteViewModel.voteHeaderTitle)
@@ -34,13 +34,8 @@ struct VoteHeader: View {
                 
               
             })
-            Spacer()
-            
-            VStack {
-               
-                
-            }
-        })  //:HSTACK
+            .frame(maxWidth: .infinity)
+//        })  :HSTACK
     }
 }
 
