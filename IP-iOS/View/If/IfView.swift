@@ -29,13 +29,13 @@ struct IfView: View {
                     IfTopBar(path: $path)
                     SegmentedControl(selectedSegment: $selectedSegment)
                     List {
-                        VoteCell()
-                            .listRowSeparator(.hidden)
-                            .background(Color.clear)
-                        VoteCell()
-                            .listRowSeparator(.hidden)
-                        VoteCell()
-                            .listRowSeparator(.hidden)
+//                        VoteCell()
+//                            .listRowSeparator(.hidden)
+//                            .background(Color.clear)
+//                        VoteCell()
+//                            .listRowSeparator(.hidden)
+//                        VoteCell()
+//                            .listRowSeparator(.hidden)
                     }
                     .listStyle(.inset)
                     .refreshable {

@@ -22,6 +22,10 @@ struct HomeViewHeader: View {
                         topTrailingRadius: 0
                     )
                 )
+            Image("hearder-img")
+                .resizable()  // 이미지 크기 조절 가능하도록 설정
+                .scaledToFit()  // 이미지 비율 유지하면서 크기 조정
+                .frame(width: 317, height: 200)
             
             VStack(content: {
                 HStack{

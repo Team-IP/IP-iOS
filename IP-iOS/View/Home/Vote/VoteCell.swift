@@ -11,7 +11,7 @@ struct VoteCell: View {
     
     @State var showSheet: Bool = false
     
-    @StateObject var voteViewModel = VoteViewModel()
+    @ObservedObject var voteViewModel: VoteViewModel
       
     var body: some View {
         ZStack(alignment: .top, content: {
@@ -55,5 +55,5 @@ struct VoteCell: View {
 }
 
 #Preview {
-    VoteCell()
+    VoteCell(voteViewModel: VoteViewModel())
 }
