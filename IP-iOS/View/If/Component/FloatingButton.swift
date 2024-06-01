@@ -17,10 +17,8 @@ struct FloatingButton: View {
         VStack {
             if isFloatingButtonOn {
                 Group {
-                    Button(action: {
-                        onTapNewVoteButton()
-                    }) {
-                        VStack(spacing: 3) {
+                    NavigationLink(destination: AddVotingViewControllerRepresentable()) {
+                        VStack(content: {
                             Text("새 투표 만들기")
                                 .setTypo(.body3)
                                 .foregroundColor(.ipLine)
@@ -30,12 +28,12 @@ struct FloatingButton: View {
                                 .padding()
                                 .background(.ipPrimary)
                                 .cornerRadius(30)
-                        }
+                        })
+                        .padding(.trailing, 1)
+                        
                     }
                     
-                    Button(action: {
-                        onTapMyVoteButton()
-                    }) {
+                    NavigationLink(destination: CreateImageView()) {
                         VStack(spacing: 3) {
                             Text("내가 만든 투표")
                                 .setTypo(.body3)
@@ -47,7 +45,9 @@ struct FloatingButton: View {
                                 .background(.ipPrimary)
                                 .cornerRadius((30))
                         }
+                        
                     }
+                   
                 }.transition(.move(edge: .trailing))
                     .padding([.trailing], PAGE_PADDING)
             }
