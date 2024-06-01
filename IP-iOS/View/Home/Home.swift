@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Home: View {
+  
+    
     var body: some View {
         
         VStack(content: {
@@ -50,12 +52,18 @@ struct Home: View {
                                 view
                                     .opacity(1 - (phase.value < 0 ? -phase.value : phase.value))
                             }
+                           
                 }
               
             }
         }
        
     }
+}
+
+// Sheet Size 더 작게 Custom
+extension PresentationDetent {
+    static let small = Self.height(100)
 }
 
 #Preview {
