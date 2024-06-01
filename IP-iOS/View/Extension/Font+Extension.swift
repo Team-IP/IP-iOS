@@ -13,7 +13,14 @@ public enum FontWeight {
     case semiBold, bold, extraBold, black
 }
 
+
 public extension UILabel {
+    /// - 예시
+    /// ```
+    /// let label = UILabel()
+    /// label.setDefaultFont(size: 18, weight: .bold)
+    /// ```
+    ///
     func setDefaultFont(
         size: CGFloat = 16,
         weight: FontWeight = .regular
@@ -42,6 +49,11 @@ public extension UILabel {
 }
 
 public extension Text {
+    /// - 예시
+    /// ```swift
+    /// Text("Hello, SwiftUI!")
+    ///    .defaultFont(size: 24, weight: .bold)
+    /// ```
     func setDefaultFont(size: CGFloat = 16, weight: FontWeight = .regular) -> some View {
         var fontName: String
         switch weight {

@@ -15,9 +15,7 @@ struct OnboardingView: View {
     @State var onboardingType: OnboardingType = .login
     
     var body: some View {
-        HStack {
-            onboardingTypeButtonGroup
-        }
+        onboardingTypeButtonGroup
         
         switch onboardingType {
         case .signup:
@@ -54,7 +52,6 @@ struct SignupView: View {
     @State var nickname: String = ""
     @State var email: String = ""
     @State var password: String = ""
-    
     
     var body: some View {
         TextField("Nickname", text: $nickname)
