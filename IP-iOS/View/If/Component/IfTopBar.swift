@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct IfTopBar: View {
+    
+    @Binding var path: NavigationPath
+    
     var body: some View {
         HStack {
-            Text("로고")
+            Image("logo-color")
+                .resizable()
+                .frame(width: 25, height: 25)
             Spacer()
-            Image(systemName: "gear")
+            Image("setting-navy-icon")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .onTapGesture {
+                    path.append("설정")
+                }
         }
-        .padding()
+        .padding(.horizontal, PAGE_PADDING)
     }
-}
-
-#Preview {
-    IfTopBar()
 }
