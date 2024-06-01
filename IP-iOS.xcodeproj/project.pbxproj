@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BC246AED2C0AE0B40071C358 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEC2C0AE0B40071C358 /* Alamofire */; };
 		BC246AF02C0AE0CD0071C358 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEF2C0AE0CD0071C358 /* SnapKit */; };
+		BC42E07F2C0AE4F9008B7336 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E07E2C0AE4F9008B7336 /* FirstView.swift */; };
+		BC42E0812C0AE509008B7336 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0802C0AE509008B7336 /* SecondView.swift */; };
 		BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */; };
 		BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */; };
 		BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D642C0ADF1A0058AD4B /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC42E07E2C0AE4F9008B7336 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		BC42E0802C0AE509008B7336 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		BC653D5D2C0ADF190058AD4B /* IP-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IP-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				BC653D692C0ADF1B0058AD4B /* Assets.xcassets */,
 				BC653D6B2C0ADF1B0058AD4B /* LaunchScreen.storyboard */,
 				BC653D6E2C0ADF1B0058AD4B /* Info.plist */,
+				BC42E07E2C0AE4F9008B7336 /* FirstView.swift */,
+				BC42E0802C0AE509008B7336 /* SecondView.swift */,
 			);
 			path = "IP-iOS";
 			sourceTree = "<group>";
@@ -151,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */,
+				BC42E0812C0AE509008B7336 /* SecondView.swift in Sources */,
+				BC42E07F2C0AE4F9008B7336 /* FirstView.swift in Sources */,
 				BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */,
 				BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */,
 			);
@@ -222,7 +230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -279,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
