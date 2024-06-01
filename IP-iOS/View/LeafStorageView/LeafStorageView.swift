@@ -9,12 +9,14 @@ import SwiftUI
 
 struct LeafStorageView: View {
     
+    @Binding var path: NavigationPath
     @State private var leaf: Int = 200
     @State private var spentLeaf: Int = 400
     
     var body: some View {
         ScrollView {
             VStack {
+                Spacer().frame(maxHeight: 20)
                 HStack{
                     Spacer()
                     VStack {
@@ -101,9 +103,12 @@ struct LeafStorageView: View {
         }
         .background(.ipBackground)
         .navigationTitle("잎 저장소")
+        .customBackButton(dismissAction: { path.removeLast()
+        })
+        
     }
 }
 
 #Preview {
-    LeafStorageView()
+    LeafStorageView(path: .constant(NavigationPath()))
 }

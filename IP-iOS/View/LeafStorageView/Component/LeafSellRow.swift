@@ -14,7 +14,7 @@ struct LeafSellRow: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "leaf.fill")
+            Image("leaf-icon")
             HStack(spacing: 2) {
                 Text("\(leafCount)")
                     .setTypo(.body1b)

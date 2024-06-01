@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct Home: View {
-  
+    
     @State private var isHeaderVisible = true
     @State private var offset = CGSize.zero
-      
+    
+    @State private var isRefreshing: Bool = false
+    @State private var ifCategories: [IfCategoryDTO] = []
+    @State private var pageNumber: Int = 0
     
     var body: some View {
         
@@ -20,7 +23,7 @@ struct Home: View {
             // HomeViewHeader
             HomeViewHeader()
             
-           
+            
         })
         
         ScrollView(.vertical) {
@@ -32,7 +35,7 @@ struct Home: View {
                     .padding()
                 
                 // 투표 Cell View
-                ForEach(1...30, id: \.self) { _ in
+                ForEach(ifCategories) { item in
                     VoteCell()
                         .scrollTransition(
                             // . interactive 말고도 다양한 설정 값이 있음
@@ -41,12 +44,63 @@ struct Home: View {
                                 view
                                     .opacity(1 - (phase.value < 0 ? -phase.value : phase.value))
                             }
-                           
+                            .onAppear {
+                                if item == ifCategories.last {
+                                    Task {
+                                        await loadMoreData()
+                                    }
+                                }
+                            }
                 }
-        
+                
+            }
+            .refreshable {
+                pageNumber = 0
+                await refreshData()
             }
         }
-       
+        .onAppear() {
+            Task {
+                await refreshData()
+            }
+        }
+        
+    }
+    
+    private func refreshData() async {
+        // 데이터 새로고침 로직
+        isRefreshing = true
+        
+        do {
+            let fetchedCategories = try await IfCategoryService.shared.fetch(
+                category: nil,
+                pageNumber: "\(pageNumber)"
+            )
+            print(fetchedCategories)
+            self.ifCategories = fetchedCategories
+            pageNumber += 1
+        } catch {
+            print(error)
+        }
+        
+        isRefreshing = false
+    }
+    
+    private func loadMoreData() async {
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        do {
+            let fetchedCategories = try await IfCategoryService.shared.fetch(
+                category: nil,
+                pageNumber: "\(pageNumber)"
+            )
+            print(fetchedCategories)
+            self.ifCategories.append(contentsOf: fetchedCategories)
+            pageNumber += 1
+        } catch {
+            print(error)
+        }
+        isRefreshing = false
     }
 }
 
