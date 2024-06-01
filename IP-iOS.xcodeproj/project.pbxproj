@@ -20,6 +20,7 @@
 		642CB8632C0B37B4001FC5D5 /* MySettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8622C0B37B4001FC5D5 /* MySettingView.swift */; };
 		642CB8672C0B39BC001FC5D5 /* MySettingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8662C0B39BC001FC5D5 /* MySettingContent.swift */; };
 		642CB8692C0B3F4E001FC5D5 /* MySettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8682C0B3F4E001FC5D5 /* MySettingHeader.swift */; };
+		642CB86B2C0B71EE001FC5D5 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */; };
 		BC246AED2C0AE0B40071C358 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEC2C0AE0B40071C358 /* Alamofire */; };
 		BC246AF02C0AE0CD0071C358 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEF2C0AE0CD0071C358 /* SnapKit */; };
 		BC42E0862C0AEB60008B7336 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC42E0852C0AEB60008B7336 /* IQKeyboardManagerSwift */; };
@@ -67,6 +68,7 @@
 		642CB8622C0B37B4001FC5D5 /* MySettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingView.swift; sourceTree = "<group>"; };
 		642CB8662C0B39BC001FC5D5 /* MySettingContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingContent.swift; sourceTree = "<group>"; };
 		642CB8682C0B3F4E001FC5D5 /* MySettingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingHeader.swift; sourceTree = "<group>"; };
+		642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		BC42E0892C0AF878008B7336 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		BC42E0952C0AFFA6008B7336 /* NotoSansKR-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.ttf"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				642CB85D2C0B1A58001FC5D5 /* VoteDetail */,
 				642CB8542C0B0978001FC5D5 /* Vote */,
 				642CB8552C0B0978001FC5D5 /* Home.swift */,
+				642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				BC42E08A2C0AF878008B7336 /* OnboardingView.swift in Sources */,
 				642CB8602C0B3395001FC5D5 /* VoteParticipated.swift in Sources */,
 				BC42E0BA2C0B3547008B7336 /* LeafStorageView.swift in Sources */,
+				642CB86B2C0B71EE001FC5D5 /* HomeViewHeader.swift in Sources */,
 				BC42E0BD2C0B3671008B7336 /* LeafSellRow.swift in Sources */,
 				BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */,
 				BC42E0AB2C0B18BB008B7336 /* MypageView.swift in Sources */,

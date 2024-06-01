@@ -24,13 +24,13 @@ struct VoteBody: View {
                 ZStack {
                     Rectangle()
                         .frame(width: 280, height: 50)
-                        .cornerRadius(18)
-                        .foregroundColor(.ipLine)
-                    
-                    Rectangle()
+                        .cornerRadius(8)
                         .foregroundColor(isFirstButtonSelected ? .ipLine : .white)
-                        .frame(width: 278, height: 45)
-                        .cornerRadius(18)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(.ipLine), lineWidth: 1)
+                        )
                     
                     HStack(spacing: 30) {
                         Circle()
@@ -53,13 +53,13 @@ struct VoteBody: View {
                 ZStack {
                     Rectangle()
                         .frame(width: 280, height: 50)
-                        .cornerRadius(18)
-                        .foregroundColor(.ipLine)
-                    
-                    Rectangle()
+                        .cornerRadius(8)
                         .foregroundColor(isSecondButtonSelected ? .ipLine : .white)
-                        .frame(width: 278, height: 45)
-                        .cornerRadius(18)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(.ipLine), lineWidth: 1)
+                        )
                     
                     HStack(spacing: 30) {
                         Circle()
@@ -68,7 +68,7 @@ struct VoteBody: View {
                         Text("투표 항목")
                             .font(.headline)
                             .bold()
-                            .foregroundColor(isFirstButtonSelected ? .gray : .ipLine)
+                            .foregroundColor(isSecondButtonSelected ? .gray : .ipLine)
                             .padding(.trailing, 110)
                     }
                 }

@@ -15,22 +15,7 @@ struct Home: View {
         VStack(content: {
             
             // HomeViewHeader
-            ZStack(content: {
-                Rectangle()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)  // 높이는 고정
-                    .foregroundColor(Color(.lightGray))
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 0,
-                            bottomLeadingRadius: 20,
-                            bottomTrailingRadius: 20,
-                            topTrailingRadius: 0
-                        )
-                    )
-                
-                
-            })
+            HomeViewHeader()
            
         })
         
