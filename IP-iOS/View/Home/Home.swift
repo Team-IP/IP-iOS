@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct Home: View {
+    @State var path = NavigationPath([String]())
+    
+    @AppStorage("token") var token: String?
+    @State var isOpenSheet = false
     
     @State private var isHeaderVisible = true
     @State private var offset = CGSize.zero
@@ -18,37 +22,36 @@ struct Home: View {
     @StateObject var viewModel = VoteViewModel()
     
     var body: some View {
-        VStack {
-            VStack(content: {
-                
-                // HomeViewHeader
-                HomeViewHeader()
-                
-                
-            })
-            
-            ScrollView(.vertical) {
-                LazyVStack (spacing: 20) {
+        NavigationStack(path: $path) {
+            VStack {
+                VStack(content: {
                     
-                    Text("지금 Hot🔥한 IF")
-                        .font(.title)
-                        .bold()
-                        .padding()
-                    
-                    // 투표 Cell View
-                    ForEach(ifCategories) { item in
-                        VoteCell(voteViewModel: VoteViewModel(
-                            isLoading: true,
-                            voteHeaderTitle: item.title,
-                             voteHeaderTimeremaining: "2024-07-01까지 참여해보세요🔥",
-                            voteHeaderIPGoods: "\(item.ipAmount ?? 0)잎",
-                            voteBodyParticipantCount: "\(item.voteCount)명 참여",
-                            voteDetaildescription: item.content ?? "",
-                            voteChoiceFirst: item.firstOption,
-                            voteChoiceSecond: item.secondOption,
-                             isFirstButtonSelected: true,
-                             isSecondButtonSelected: false
-                        ))
+                    // HomeViewHeader
+                    HomeViewHeader()
+                })
+                
+                ScrollView(.vertical) {
+                    LazyVStack (spacing: 20) {
+                        
+                        Text("지금 Hot🔥한 IF")
+                            .font(.title)
+                            .bold()
+                            .padding()
+                        
+                        // 투표 Cell View
+                        ForEach(ifCategories) { item in
+                            VoteCell(voteViewModel: VoteViewModel(
+                                isLoading: true,
+                                voteHeaderTitle: item.title,
+                                voteHeaderTimeremaining: "2024-07-01까지 참여해보세요🔥",
+                                voteHeaderIPGoods: "\(item.ipAmount ?? 0)잎",
+                                voteBodyParticipantCount: "\(item.voteCount)명 참여",
+                                voteDetaildescription: item.content ?? "",
+                                voteChoiceFirst: item.firstOption,
+                                voteChoiceSecond: item.secondOption,
+                                isFirstButtonSelected: true,
+                                isSecondButtonSelected: false
+                            ))
                             .scrollTransition(
                                 // . interactive 말고도 다양한 설정 값이 있음
                                 topLeading: .interactive,
@@ -63,16 +66,41 @@ struct Home: View {
                                         }
                                     }
                                 }
+                        }
                     }
                 }
-            }
-            .onAppear() {
-                Task {
-                    await refreshData()
+                .onAppear() {
+                    if let token = token {
+                        print("로그인 상태")
+                    } else {
+                        isOpenSheet = true
+                    }
+                    
+                    pageNumber = 0
+                    Task {
+                        await refreshData()
+                    }
                 }
+                .onChange(of: token) { newValue in
+                    if newValue != nil {
+                        isOpenSheet = false
+                    }
+                }
+                .navigationDestination(for: String.self) { value in
+                    switch (value) {
+                    case "로그인":
+                        OnboardingView()
+                    default:
+                        EmptyView()
+                    }
+                }
+                .fullScreenCover(isPresented: $isOpenSheet) {
+                    OnboardingView()
+                }
+                
             }
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
         
     }
     

@@ -22,6 +22,9 @@ struct OnboardingView: View {
                     .frame(height: 120)
                 
                 Image("logo-color")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
                 
                 Spacer()
                     .frame(height: 30)
