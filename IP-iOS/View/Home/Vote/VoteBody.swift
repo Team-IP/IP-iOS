@@ -9,12 +9,16 @@ import SwiftUI
 
 struct VoteBody: View {
     
+    var onTap: (() -> Void)?
     @ObservedObject var voteViewModel : VoteViewModel
     
     var body: some View {
         VStack(alignment:.leading, content: {
             
-            VoteButton(voteViewModel: voteViewModel)
+            VStack {
+                
+                VoteButton(onTap: onTap, voteViewModel: voteViewModel)
+            }
             
             VStack(content: {
                 HStack {
