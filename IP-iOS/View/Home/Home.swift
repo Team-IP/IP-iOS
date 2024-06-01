@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Home: View {
   
+    @State private var isHeaderVisible = true
+    @State private var offset = CGSize.zero
+      
     
     var body: some View {
         
@@ -16,6 +19,7 @@ struct Home: View {
             
             // HomeViewHeader
             HomeViewHeader()
+            
            
         })
         
@@ -39,7 +43,7 @@ struct Home: View {
                             }
                            
                 }
-              
+        
             }
         }
        

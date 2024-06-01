@@ -21,6 +21,7 @@
 		642CB8672C0B39BC001FC5D5 /* MySettingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8662C0B39BC001FC5D5 /* MySettingContent.swift */; };
 		642CB8692C0B3F4E001FC5D5 /* MySettingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8682C0B3F4E001FC5D5 /* MySettingHeader.swift */; };
 		642CB86B2C0B71EE001FC5D5 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */; };
+		642CB86D2C0B75DF001FC5D5 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86C2C0B75DF001FC5D5 /* VoteButton.swift */; };
 		BC246AED2C0AE0B40071C358 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEC2C0AE0B40071C358 /* Alamofire */; };
 		BC246AF02C0AE0CD0071C358 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEF2C0AE0CD0071C358 /* SnapKit */; };
 		BC42E0862C0AEB60008B7336 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC42E0852C0AEB60008B7336 /* IQKeyboardManagerSwift */; };
@@ -69,6 +70,7 @@
 		642CB8662C0B39BC001FC5D5 /* MySettingContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingContent.swift; sourceTree = "<group>"; };
 		642CB8682C0B3F4E001FC5D5 /* MySettingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingHeader.swift; sourceTree = "<group>"; };
 		642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
+		642CB86C2C0B75DF001FC5D5 /* VoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		BC42E0892C0AF878008B7336 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		BC42E0952C0AFFA6008B7336 /* NotoSansKR-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.ttf"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				642CB8512C0B0978001FC5D5 /* VoteBody.swift */,
 				642CB8522C0B0978001FC5D5 /* VoteCell.swift */,
 				642CB8532C0B0978001FC5D5 /* VoteHeader.swift */,
+				642CB86C2C0B75DF001FC5D5 /* VoteButton.swift */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				642CB8632C0B37B4001FC5D5 /* MySettingView.swift in Sources */,
 				BC42E0E82C0B4D7E008B7336 /* SegmentedControl.swift in Sources */,
 				BC42E0CD2C0B4547008B7336 /* Constant.swift in Sources */,
+				642CB86D2C0B75DF001FC5D5 /* VoteButton.swift in Sources */,
 				642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */,
 				642CB8672C0B39BC001FC5D5 /* MySettingContent.swift in Sources */,
 				642CB8692C0B3F4E001FC5D5 /* MySettingHeader.swift in Sources */,
