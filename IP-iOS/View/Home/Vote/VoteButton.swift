@@ -31,10 +31,14 @@ struct VoteButton: View {
                                 .stroke(Color(.ipLine), lineWidth: 1)
                         )
                     
-                    HStack(spacing: 30) {
-                        Circle()
-                            .frame(width: 35)
-                            .foregroundColor(.ipPrimary)
+                    HStack(spacing: 24) {
+//                        Circle()
+//                            .frame(width: 35)
+//                            .foregroundColor(.ipPrimary)
+                        Image("voteSelect1")
+                            .resizable()  // 이미지 크기 조절 가능하도록 설정
+                            .scaledToFit()  // 이미지 비율 유지하면서 크기 조정
+                            .frame(width: 30, height: 30)
                         Text(voteViewModel.voteChoiceFirst)
                             .font(.headline)
                             .bold()
@@ -61,10 +65,11 @@ struct VoteButton: View {
                                 .stroke(Color(.ipLine), lineWidth: 1)
                         )
                     
-                    HStack(spacing: 30) {
-                        Circle()
-                            .frame(width: 35)
-                            .foregroundColor(.ipPrimary)
+                    HStack(spacing: 24) {
+                        Image("voteSelect2")
+                            .resizable()  // 이미지 크기 조절 가능하도록 설정
+                            .scaledToFit()  // 이미지 비율 유지하면서 크기 조정
+                            .frame(width: 30, height: 30)
                         Text(voteViewModel.voteChoiceSecond)
                             .font(.headline)
                             .bold()

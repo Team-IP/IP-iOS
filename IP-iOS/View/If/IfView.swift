@@ -49,6 +49,7 @@ struct IfView: View {
                     IfTopBar(path: $path)
                     SegmentedControl(selectedSegment: $selectedSegment)
                     List {
+
                         ForEach(ifCategories) { item in
                             VoteCell()
                                 .frame(height: 300)
@@ -62,6 +63,7 @@ struct IfView: View {
                                     }
                                 }
                         }
+
                     }
                     .listStyle(.plain)
                     .refreshable {

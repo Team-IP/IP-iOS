@@ -32,12 +32,22 @@ private struct VoteDetailHandler: View {
         
         VStack(alignment:.leading){
             HStack {
+                
                 Text(voteViewModel.voteHeaderTitle)
                     .font(.title)
                     .bold()
+                
                 Spacer()
-                Text(voteViewModel.voteHeaderIPcount)
+                
+                Image("goods-img")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 15)
+                
+                Text(voteViewModel.voteHeaderIPGoods)
+                    .font(.caption)
                     .bold()
+            
             }
             
             Text(voteViewModel.voteHeaderTimeremaining)
