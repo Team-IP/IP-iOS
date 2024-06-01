@@ -46,8 +46,8 @@ final class AddVotingView: UIView {
         $0.spellCheckingType = .no
     }
     
-    private lazy var titleWarningLabel = UILabel().then {
-        $0.text = "*20자 이내로 입력가능해요"
+    lazy var titleWarningLabel = UILabel().then {
+        $0.text = "*20자 이내로 입력가능해주세요."
         $0.textColor = UIColor(red: 0.7804, green: 0.7804, blue: 0.7804, alpha: 1.0)
         $0.setDefaultFont(size: 10, weight: .regular)
     }
