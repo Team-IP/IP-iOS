@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import SwiftUI
 
 final class AddVotingViewController: UIViewController {
     // MARK: - Properties
@@ -99,11 +100,23 @@ extension AddVotingViewController {
         }
         
         self.addVotingView.notEnoughAleartView.retryButton.addTarget(self, action: #selector(retryButtonTapped), for: .touchUpInside)
+        self.addVotingView.notEnoughAleartView.goBuyButton.addTarget(self, action: #selector(goBuyButtonTapped), for: .touchUpInside)
     }
     
     @objc func retryButtonTapped() {
         addVotingView.overlayView.isHidden = true
         addVotingView.notEnoughAleartView.isHidden = true
+    }
+    
+    @objc func goBuyButtonTapped() {
+        print("구매하기 뷰로")
+        let leafStorageView = LeafStorageView(path: .constant(NavigationPath()))
+        let hostingController = UIHostingController(rootView: leafStorageView)
+        if let navigationController = self.navigationController {
+            print("닐 아님")
+            navigationController.pushViewController(hostingController, animated: true)
+        }
+        
     }
     
     // 툴바에 완료버튼 삽입

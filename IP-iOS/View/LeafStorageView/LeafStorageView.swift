@@ -103,8 +103,8 @@ struct LeafStorageView: View {
         }
         .background(.ipBackground)
         .navigationTitle("잎 저장소")
-        .customBackButton(dismissAction: { path.removeLast()
-        })
+//        .customBackButton(dismissAction: { path.removeLast()
+//        })
         
     }
 }

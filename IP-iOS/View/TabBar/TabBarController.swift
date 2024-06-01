@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
 //        homeVC.title = "홈"
 //        mypageVC.title = "마이"
         
-        setViewControllers([ifVC, homeVC, mypageVC, signupTest], animated: false)
+        setViewControllers([ifVC, homeVC, mypageVC], animated: false)
         
         guard let items = tabBar.items else { return }
         items[0].image = UIImage(named: "tabbar-leaf-line")?

@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import UIKit
 
 struct AddVotingRequestDto: Codable {
     let title, content, firstOption, secondOption, endAt, category: String
