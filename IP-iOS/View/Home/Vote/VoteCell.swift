@@ -43,7 +43,7 @@ struct VoteCell: View {
                     .padding(.horizontal, 30)
             }
             
-            .presentationDetents([.small, .medium, .large])
+            //.presentationDetents([.small, .medium, .large])
             //.presentationDragIndicator(.hidden) // sheet 맨위 상단 사각형 지우기
         }
     }
