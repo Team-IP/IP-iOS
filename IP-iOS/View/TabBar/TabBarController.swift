@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class TabBarController: UITabBarController {
 
@@ -13,14 +14,11 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         // (1) VC 생성
-        let ifVC = DummyViewController()
-        let ifNavVC = UINavigationController(rootViewController: ifVC)
+        let ifVC = UIHostingController(rootView: IfView())
         
-        let homeVC = DummyViewController()
-        let homeNavVC = UINavigationController(rootViewController: homeVC)
+        let homeVC = UIHostingController(rootView: Home())
         
-        let mypageVC = DummyViewController()
-        let mypageNavVC = UINavigationController(rootViewController: mypageVC)
+        let mypageVC = UIHostingController(rootView: MypageView())
         
         // (2) Tab Bar 이름 설정
         ifVC.title = "이프"
@@ -28,7 +26,7 @@ final class TabBarController: UITabBarController {
         mypageVC.title = "마이"
         
         // (3) Tab Bar로 사용하기 위한 뷰 컨트롤러들 설정
-        setViewControllers([ifNavVC, homeNavVC, mypageNavVC], animated: false)
+        setViewControllers([ifVC, homeVC, mypageVC], animated: false)
         tabBar.backgroundColor = .white
         tabBar.tintColor = .black
         
