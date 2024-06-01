@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		561DD2392C0AF10600C662E2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD2382C0AF10600C662E2 /* ServiceTest.swift */; };
 		561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD23A2C0AF10D00C662E2 /* TabBarController.swift */; };
-		561DD23B2C0AF10D00C662E2 /* ViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD23A2C0AF10D00C662E2 /* ViewTest.swift */; };
 		642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8512C0B0978001FC5D5 /* VoteBody.swift */; };
 		642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8522C0B0978001FC5D5 /* VoteCell.swift */; };
 		642CB8592C0B0978001FC5D5 /* VoteHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8532C0B0978001FC5D5 /* VoteHeader.swift */; };
@@ -43,7 +42,6 @@
 		BC42E09C2C0AFFA7008B7336 /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
 		BC42E09D2C0AFFA7008B7336 /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
 		BC42E0A12C0B0635008B7336 /* IfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfView.swift; sourceTree = "<group>"; };
-		561DD23A2C0AF10D00C662E2 /* ViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTest.swift; sourceTree = "<group>"; };
 		642CB8512C0B0978001FC5D5 /* VoteBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteBody.swift; sourceTree = "<group>"; };
 		642CB8522C0B0978001FC5D5 /* VoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteCell.swift; sourceTree = "<group>"; };
 		642CB8532C0B0978001FC5D5 /* VoteHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteHeader.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 				BC42E0882C0AF817008B7336 /* Onboarding */,
 				BC42E09E2C0B0614008B7336 /* IfView */,
 				642CB8562C0B0978001FC5D5 /* Home */,
-				561DD23A2C0AF10D00C662E2 /* ViewTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +136,7 @@
 				BC42E0A12C0B0635008B7336 /* IfView.swift */,
 			);
 			path = IfView;
+        };
 		642CB8542C0B0978001FC5D5 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +272,6 @@
 			files = (
 				561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */,
 				BC42E0A22C0B0635008B7336 /* IfView.swift in Sources */,
-				561DD23B2C0AF10D00C662E2 /* ViewTest.swift in Sources */,
 				642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */,
 				642CB8592C0B0978001FC5D5 /* VoteHeader.swift in Sources */,
 				BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */,
