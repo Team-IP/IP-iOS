@@ -15,30 +15,50 @@ struct OnboardingView: View {
     @State private var onboardingType: OnboardingType = .login
     
     var body: some View {
-        onboardingTypeButtonGroup
-        
-        switch onboardingType {
-        case .signup:
-            SignupView()
-        case .login:
-            LoginView()
+        VStack {
+            Spacer()
+                .frame(height: 120)
+            
+            Image("logo-color")
+            
+            Spacer()
+                .frame(height: 30)
+            
+            onboardingTypeButtonGroup
+            
+            Spacer()
+                .frame(height: 30)
+            
+            Spacer()
+            
+            switch onboardingType {
+            case .signup:
+                SignupView()
+            case .login:
+                LoginView()
+            }
         }
     }
     
     private var onboardingTypeButtonGroup: some View {
         HStack {
             Button(action: {
-                self.onboardingType = .signup
+                onboardingType = .signup
             }) {
-                Text("Sign Up")
-                    .setDefaultFont()
+                Text("회원가입")
+                    .foregroundStyle(.black)
+                    .setTypo(onboardingType == .signup ? .body1b : .body1)
             }
             
+            Divider()
+                .frame(height: 20)
+            
             Button(action: {
-                self.onboardingType = .login
+                onboardingType = .login
             }) {
-                Text("Log In")
-                    .setDefaultFont()
+                Text("로그인")
+                    .foregroundStyle(.black)
+                    .setTypo(onboardingType == .login ? .body1b : .body1)
             }
         }
     }
@@ -48,38 +68,55 @@ struct OnboardingView: View {
     OnboardingView()
 }
 
-struct SignupView: View {
+private struct SignupView: View {
     @State private var nickname: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     
     var body: some View {
-        TextField("Nickname", text: $nickname)
-        TextField("Email", text: $email)
-        TextField("Password", text: $password)
-        
-        Button(action: {
-            // Handle signup
-        }) {
-            Text("회원가입하기")
+        VStack {
+            Group {
+                IPTextField(placeholder: "닉네임을 입력해주세요.", text: $nickname)
+                IPTextField(placeholder: "메일주소를 입력해주세요.", text: $email)
+                IPTextField(placeholder: "비밀번호를 입력해주세요.", text: $password, isSecure: true)
+            }
+            .padding(.horizontal, PAGE_PADDING)
+            
+            Spacer()
+            
+            Button(action: {
+                // Handle signup
+            }) {
+                Text("회원가입하기")
+                    .frame(width: .infinity)
+                    .padding()
+                    .background(.ipPrimary)
+            }
         }
     }
     
 }
 
-struct LoginView: View {
+private struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
     
     var body: some View {
-        TextField("Email", text: $email)
-        TextField("Password", text: $password)
-        
-        Button(action: {
-            // Handle signup
-        }) {
-            Text("로그인하기")
+        VStack {
+            Group {
+                IPTextField(placeholder: "메일주소를 입력해주세요.", text: $email)
+                IPTextField(placeholder: "비밀번호를 입력해주세요.", text: $password, isSecure: true)
+            }
+            .padding(.horizontal, PAGE_PADDING)
+            
+            Spacer()
+            
+            Button(action: {
+                // Handle signup
+            }) {
+                Text("로그인하기")
+            }
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  VoteParticipated.swift
 //  IP-iOS
 //
 //  Created by 정정욱 on 6/1/24.
@@ -7,37 +7,12 @@
 
 import SwiftUI
 
-struct Home: View {
-  
-    
+struct VoteParticipated: View {
     var body: some View {
-        
-        VStack(content: {
-            
-            // HomeViewHeader
-            ZStack(content: {
-                Rectangle()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)  // 높이는 고정
-                    .foregroundColor(Color(.lightGray))
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 0,
-                            bottomLeadingRadius: 20,
-                            bottomTrailingRadius: 20,
-                            topTrailingRadius: 0
-                        )
-                    )
-                
-                
-            })
-           
-        })
-        
         ScrollView(.vertical) {
             LazyVStack (spacing: 20) {
                 
-                Text("지금 Hot🔥한 IF")
+                Text("내가 참여한 투표")
                     .font(.title)
                     .bold()
                     .padding()
@@ -57,15 +32,9 @@ struct Home: View {
               
             }
         }
-       
     }
 }
 
-// Sheet Size 더 작게 Custom
-extension PresentationDetent {
-    static let small = Self.height(100)
-}
-
 #Preview {
-    Home()
+    VoteParticipated()
 }
