@@ -38,6 +38,7 @@ struct OnboardingView: View {
                 LoginView()
             }
         }
+        .background(.ipBackground)
     }
     
     private var onboardingTypeButtonGroup: some View {
@@ -46,18 +47,19 @@ struct OnboardingView: View {
                 onboardingType = .signup
             }) {
                 Text("회원가입")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.ipBlack)
                     .setTypo(onboardingType == .signup ? .body1b : .body1)
             }
             
             Divider()
+                .foregroundColor(.ipBlack)
                 .frame(height: 20)
             
             Button(action: {
                 onboardingType = .login
             }) {
                 Text("로그인")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.ipBlack)
                     .setTypo(onboardingType == .login ? .body1b : .body1)
             }
         }
@@ -74,25 +76,43 @@ private struct SignupView: View {
     @State private var password: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Group {
                 IPTextField(placeholder: "닉네임을 입력해주세요.", text: $nickname)
                 IPTextField(placeholder: "메일주소를 입력해주세요.", text: $email)
                 IPTextField(placeholder: "비밀번호를 입력해주세요.", text: $password, isSecure: true)
             }
-            .padding(.horizontal, PAGE_PADDING)
             
             Spacer()
             
             Button(action: {
                 // Handle signup
             }) {
-                Text("회원가입하기")
-                    .frame(width: .infinity)
+                Text("로그인하기")
+                    .setTypo(.body1)
+                    .foregroundColor(
+                        checkInputCount
+                        ? .ipLine
+                        : .gray
+                    )
+                    .frame(maxWidth: .infinity)
                     .padding()
-                    .background(.ipPrimary)
+                    .background(
+                        checkInputCount
+                        ? .ipPrimary
+                        : .gray.opacity(0.2)
+                    )
+                    .cornerRadius(10)
             }
+            .animation(.bouncy, value: checkInputCount)
+            
+            Spacer()
+                .frame(maxHeight: 30)
         }
+        .padding(.horizontal, PAGE_PADDING)
+    }
+    var checkInputCount: Bool {
+        return nickname.count > 0 && email.count > 0 && password.count > 0
     }
     
 }
@@ -101,14 +121,12 @@ private struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
-    
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Group {
                 IPTextField(placeholder: "메일주소를 입력해주세요.", text: $email)
                 IPTextField(placeholder: "비밀번호를 입력해주세요.", text: $password, isSecure: true)
             }
-            .padding(.horizontal, PAGE_PADDING)
             
             Spacer()
             
@@ -116,8 +134,32 @@ private struct LoginView: View {
                 // Handle signup
             }) {
                 Text("로그인하기")
+                    .setTypo(.body1)
+                    .foregroundColor(
+                        checkInputCount
+                        ? .ipLine
+                        : .gray
+                    )
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        checkInputCount
+                        ? .ipPrimary
+                        : .gray.opacity(0.2)
+                    )
+                    .cornerRadius(10)
             }
+            .animation(.bouncy, value: checkInputCount)
+            
+            Spacer()
+                .frame(maxHeight: 30)
         }
+        .padding(.horizontal, PAGE_PADDING)
     }
+    
+    var checkInputCount: Bool {
+        return email.count > 0 && password.count > 0
+    }
+    
     
 }

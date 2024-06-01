@@ -20,20 +20,36 @@ struct SegmentedControl: View {
                         selectedSegment = segment
                     }) {
                         Text(segment.rawValue)
-                            .padding()
-                            .background(selectedSegment == segment ? Color.black : Color.white)
-                            .foregroundColor(selectedSegment == segment ? Color.white : Color.black)
-                            .cornerRadius(segmentCornerRadius)
+                            .setTypo(
+                                selectedSegment == segment
+                                ? .body2b
+                                : .body2
+                            )
+                            .padding(.vertical, 7)
+                            .padding(.horizontal, 15)
+                            .background(
+                                selectedSegment == segment
+                                ? Color.ipLine
+                                : Color.ipGray01
+                            )
+                            .foregroundColor(
+                                selectedSegment == segment 
+                                ? Color.white.opacity(0.8)
+                                : Color.ipLine
+                            )
                             .overlay(
                                 RoundedRectangle(cornerRadius: segmentCornerRadius)
-                                    .stroke(Color.black, lineWidth: 1)
+                                    .stroke(Color.ipLine.opacity(0.4), lineWidth: 2)
                             )
+                            .cornerRadius(segmentCornerRadius)
+                            .animation(.none, value: selectedSegment)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
             }
         }
         .padding()
+
     }
 }
 
