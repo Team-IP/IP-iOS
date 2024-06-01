@@ -13,10 +13,16 @@ public enum FontWeight {
     case semiBold, bold, extraBold, black
 }
 
+public enum Typo {
+    case heading1, heading1b, heading2
+    case body0, body0b, body1, body1b, body2, body2b, body3, body3b
+    case detail
+}
+
 
 public extension UILabel {
     /// - 예시
-    /// ```
+    /// ```swift
     /// let label = UILabel()
     /// label.setDefaultFont(size: 18, weight: .bold)
     /// ```
@@ -44,6 +50,41 @@ public extension UILabel {
             self.font = UIFont(name: "NotoSansKR-ExtraLight", size: size)
         case .thin:
             self.font = UIFont(name: "NotoSansKR-Thin", size: size)
+        }
+    }
+    
+    /// - 예시
+    /// ```swift
+    /// let label = UILabel()
+    /// label.setTypo(.heading1)
+    /// ```
+    ///
+    func setTypo(_ typo: Typo) {
+        switch typo {
+        case .heading1:
+            self.setDefaultFont(size: 32, weight: .medium)
+        case .heading1b:
+            self.setDefaultFont(size: 32, weight: .bold)
+        case .heading2:
+            self.setDefaultFont(size: 28, weight: .bold)
+        case .body0:
+            self.setDefaultFont(size: 22, weight: .regular)
+        case .body0b:
+            self.setDefaultFont(size: 22, weight: .bold)
+        case .body1:
+            self.setDefaultFont(size: 16, weight: .regular)
+        case .body1b:
+            self.setDefaultFont(size: 16, weight: .bold)
+        case .body2:
+            self.setDefaultFont(size: 14, weight: .medium)
+        case .body2b:
+            self.setDefaultFont(size: 14, weight: .bold)
+        case .body3:
+            self.setDefaultFont(size: 12, weight: .medium)
+        case .body3b:
+            self.setDefaultFont(size: 12, weight: .bold)
+        case .detail:
+            self.setDefaultFont(size: 10, weight: .regular)
         }
     }
 }
@@ -77,5 +118,39 @@ public extension Text {
             fontName = "NotoSansKR-Thin"
         }
         return self.font(.custom(fontName, size: size))
+    }
+    
+    /// - 예시
+    /// ```swift
+    /// Text("Hello, SwiftUI!")
+    ///    .setTypo(.heading1)
+    /// ```
+    func setTypo(_ typo: Typo) -> some View {
+        switch (typo) {
+        case .heading1:
+            return self.setDefaultFont(size: 32, weight: .medium)
+        case .heading1b:
+            return self.setDefaultFont(size: 32, weight: .bold)
+        case .heading2:
+            return self.setDefaultFont(size: 28, weight: .bold)
+        case .body0:
+            return self.setDefaultFont(size: 22, weight: .regular)
+        case .body0b:
+            return self.setDefaultFont(size: 22, weight: .bold)
+        case .body1:
+            return self.setDefaultFont(size: 16, weight: .regular)
+        case .body1b:
+            return self.setDefaultFont(size: 16, weight: .bold)
+        case .body2:
+            return self.setDefaultFont(size: 14, weight: .medium)
+        case .body2b:
+            return self.setDefaultFont(size: 14, weight: .bold)
+        case .body3:
+            return self.setDefaultFont(size: 12, weight: .medium)
+        case .body3b:
+            return self.setDefaultFont(size: 12, weight: .bold)
+        case .detail:
+            return self.setDefaultFont(size: 10, weight: .regular)
+        }
     }
 }
