@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         window.makeKeyAndVisible()
+        
+        UserDefaults.standard.removeObject(forKey: "token")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
