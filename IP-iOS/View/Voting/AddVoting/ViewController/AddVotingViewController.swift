@@ -33,6 +33,10 @@ final class AddVotingViewController: UIViewController {
         setupButton()
     }
     
+    @objc private func allButtonTapped() {
+        print("전체버튼 클릭")
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -50,8 +54,9 @@ extension AddVotingViewController {
          view.firstVotingItemTextField,
          view.secondVotingItemTextField,
          view.deadLineTextField,
-         view.bettingTextField,
-         view.categoryTextField].forEach { $0.delegate = self }
+//         view.bettingTextField,
+//         view.categoryTextField
+        ].forEach { $0.delegate = self }
         
         setupDatePicker(for: view.deadLineTextField, datePicker: view.datePicker) // 날짜 피커뷰 설정
     }
@@ -83,6 +88,17 @@ extension AddVotingViewController {
         self.addVotingView.uploadButton.addTarget(self,
                                                   action: #selector(uploadButtonTapped),
                                                   for: .touchUpInside)
+        let categorys = [
+            addVotingView.categoryView.allButton,
+            addVotingView.categoryView.loveButton,
+            addVotingView.categoryView.economyButton,
+            addVotingView.categoryView.sportsButton,
+            addVotingView.categoryView.dailyButton
+        ]
+        
+        categorys.forEach {
+            $0.addTarget(self, action: #selector(categorysButtonTapped), for: .touchUpInside)
+        }
     }
     
     // 툴바에 완료버튼 삽입
@@ -112,7 +128,7 @@ extension AddVotingViewController {
     // 데이트 피커뷰
     @objc private func dateChanged(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy.MM.dd"
         
         addVotingView.deadLineTextField.text = formatter.string(from: sender.date)
     }
@@ -120,6 +136,10 @@ extension AddVotingViewController {
     // 데이트 피커뷰 완료버튼
     @objc private func dismissPickerView() {
         view.endEditing(true)
+    }
+    
+    @objc private func categorysButtonTapped() {
+        print()
     }
 }
 
