@@ -53,6 +53,9 @@
 		BC42E0EB2C0B858D008B7336 /* MemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EA2C0B858D008B7336 /* MemberService.swift */; };
 		BC42E0ED2C0B8D06008B7336 /* Keyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EC2C0B8D06008B7336 /* Keyboard+Extension.swift */; };
 		BC42E0EF2C0B8DB9008B7336 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0EE2C0B8DB9008B7336 /* KeyboardHelper.swift */; };
+		BC42E0F22C0BA10F008B7336 /* MemberDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0F12C0BA10F008B7336 /* MemberDTO.swift */; };
+		BC42E0F42C0BA951008B7336 /* IpCategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0F32C0BA951008B7336 /* IpCategoryDTO.swift */; };
+		BC42E0F62C0BAA19008B7336 /* IfCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0F52C0BAA19008B7336 /* IfCategoryService.swift */; };
 		BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */; };
 		BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */; };
 		BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D642C0ADF1A0058AD4B /* ViewController.swift */; };
@@ -109,6 +112,9 @@
 		BC42E0EA2C0B858D008B7336 /* MemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberService.swift; sourceTree = "<group>"; };
 		BC42E0EC2C0B8D06008B7336 /* Keyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+Extension.swift"; sourceTree = "<group>"; };
 		BC42E0EE2C0B8DB9008B7336 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		BC42E0F12C0BA10F008B7336 /* MemberDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDTO.swift; sourceTree = "<group>"; };
+		BC42E0F32C0BA951008B7336 /* IpCategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpCategoryDTO.swift; sourceTree = "<group>"; };
+		BC42E0F52C0BAA19008B7336 /* IfCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfCategoryService.swift; sourceTree = "<group>"; };
 		BC653D5D2C0ADF190058AD4B /* IP-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IP-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,9 +158,12 @@
 		561DD2372C0AF0F600C662E2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BC42E0F02C0BA0F9008B7336 /* DTO */,
 				561DD2382C0AF10600C662E2 /* ServiceTest.swift */,
 				BC42E0EA2C0B858D008B7336 /* MemberService.swift */,
 				561DD2522C0BA0C400C662E2 /* AddVotingService.swift */,
+				BC42E0F52C0BAA19008B7336 /* IfCategoryService.swift */,
+
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -368,6 +377,15 @@
 			path = If;
 			sourceTree = "<group>";
 		};
+		BC42E0F02C0BA0F9008B7336 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0F12C0BA10F008B7336 /* MemberDTO.swift */,
+				BC42E0F32C0BA951008B7336 /* IpCategoryDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		BC653D542C0ADF190058AD4B = {
 			isa = PBXGroup;
 			children = (
@@ -503,11 +521,13 @@
 				BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */,
 				642CB85A2C0B0978001FC5D5 /* Home.swift in Sources */,
 				561DD24A2C0B107D00C662E2 /* AddVotingView.swift in Sources */,
+				BC42E0F62C0BAA19008B7336 /* IfCategoryService.swift in Sources */,
 				561DD24C2C0B108D00C662E2 /* AddVotingViewController.swift in Sources */,
 				561DD2392C0AF10600C662E2 /* ServiceTest.swift in Sources */,
 				BC42E0ED2C0B8D06008B7336 /* Keyboard+Extension.swift in Sources */,
 				642CB85C2C0B1595001FC5D5 /* VoteDetail.swift in Sources */,
 				BC42E08A2C0AF878008B7336 /* OnboardingView.swift in Sources */,
+				BC42E0F22C0BA10F008B7336 /* MemberDTO.swift in Sources */,
 				561DD2512C0B8A4900C662E2 /* CategoryView.swift in Sources */,
 				642CB8602C0B3395001FC5D5 /* VoteParticipated.swift in Sources */,
 				BC42E0BA2C0B3547008B7336 /* LeafStorageView.swift in Sources */,
@@ -518,6 +538,7 @@
 				BC42E0E92C0B4D7E008B7336 /* IfView.swift in Sources */,
 				BC42E0942C0AFE8D008B7336 /* Font+Extension.swift in Sources */,
 				BC42E0EB2C0B858D008B7336 /* MemberService.swift in Sources */,
+				BC42E0F42C0BA951008B7336 /* IpCategoryDTO.swift in Sources */,
 				BC42E0B52C0B1C30008B7336 /* MenuRow.swift in Sources */,
 				BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */,
 				642CB8702C0B8F5A001FC5D5 /* VoteViewModel.swift in Sources */,

@@ -17,41 +17,41 @@ struct OnboardingView: View {
     
     var body: some View {
         GeometryReader { rootGeometry in
-                VStack {
-                    Spacer()
-                        .frame(height: 120)
-                    
-                    Image("logo-color")
-                    
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    onboardingTypeButtonGroup
-                    
-                    Spacer()
-                        .frame(height: 30)
-                    
-                    Spacer()
-                    
-                    Group {
-                        switch onboardingType {
-                        case .signup:
-                            SignupView()
-                        case .login:
-                            LoginView()
-                        }
+            VStack {
+                Spacer()
+                    .frame(height: 120)
+                
+                Image("logo-color")
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                onboardingTypeButtonGroup
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                Spacer()
+                
+                Group {
+                    switch onboardingType {
+                    case .signup:
+                        SignupView()
+                    case .login:
+                        LoginView()
                     }
                 }
-                .background(.ipBackground)
-                .addHideKeyboardGuesture()
-                .offset(x: 0, y: -keyboardHeight * 0.3)
-                .animation(.easeInOut, value: keyboardHeight)
-                .onAppear {
-                    self.addKeyboardObserver()
-                }
-                .onDisappear {
-                    self.removeKeyboardObserver()
-                }
+            }
+            .background(.ipBackground)
+            .addHideKeyboardGuesture()
+            .offset(x: 0, y: -keyboardHeight * 0.3)
+            .animation(.easeInOut, value: keyboardHeight)
+            .onAppear {
+                self.addKeyboardObserver()
+            }
+            .onDisappear {
+                self.removeKeyboardObserver()
+            }
         }
     }
     
@@ -221,7 +221,7 @@ private struct LoginView: View {
                 Spacer()
                 
                 Button(action: {
-                    // Handle signup
+                    login()
                 }) {
                     Text("로그인하기")
                         .setTypo(.body1)
@@ -252,5 +252,26 @@ private struct LoginView: View {
         return email.count > 0 && password.count > 0
     }
     
-    
+    func login() {
+        let service = MemberService.shared
+        
+        service.login(
+            email: email,
+            password: password
+        ) { response in
+            print(response)
+            switch(response) {
+            case .success(let data):
+                UserDefaults.standard.setValue(
+                    data.result.token,
+                    forKey: "token"
+                )
+                print("saved token \(UserDefaults.standard.string(forKey: "token"))")
+            case .failure(_):
+                print("실패")
+            }
+            
+        }
+    }
 }
+
