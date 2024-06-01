@@ -40,6 +40,10 @@
 		BC42E0C92C0B427D008B7336 /* IPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0C82C0B427D008B7336 /* IPTextField.swift */; };
 		BC42E0CB2C0B4311008B7336 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0CA2C0B4311008B7336 /* Color+Extension.swift */; };
 		BC42E0CD2C0B4547008B7336 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0CC2C0B4547008B7336 /* Constant.swift */; };
+		BC42E0D62C0B4A09008B7336 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0D02C0B4A09008B7336 /* FloatingButton.swift */; };
+		BC42E0D72C0B4A09008B7336 /* IfTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0D12C0B4A09008B7336 /* IfTopBar.swift */; };
+		BC42E0D82C0B4A09008B7336 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0D22C0B4A09008B7336 /* SegmentedControl.swift */; };
+		BC42E0D92C0B4A09008B7336 /* IfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0D42C0B4A09008B7336 /* IfView.swift */; };
 		BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */; };
 		BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */; };
 		BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D642C0ADF1A0058AD4B /* ViewController.swift */; };
@@ -79,6 +83,10 @@
 		BC42E0C82C0B427D008B7336 /* IPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPTextField.swift; sourceTree = "<group>"; };
 		BC42E0CA2C0B4311008B7336 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BC42E0CC2C0B4547008B7336 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BC42E0D02C0B4A09008B7336 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		BC42E0D12C0B4A09008B7336 /* IfTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfTopBar.swift; sourceTree = "<group>"; };
+		BC42E0D22C0B4A09008B7336 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		BC42E0D42C0B4A09008B7336 /* IfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfView.swift; sourceTree = "<group>"; };
 		BC653D5D2C0ADF190058AD4B /* IP-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IP-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				BC42E0C72C0B4259008B7336 /* Common */,
+				BC42E0D52C0B4A09008B7336 /* If */,
 				BC42E0B62C0B3511008B7336 /* LeafStorageView */,
 				BC42E0A92C0B1893008B7336 /* Mypage */,
 				561DD2432C0B101900C662E2 /* Voting */,
-				BC42E0A32C0B0D36008B7336 /* IfView */,
 				BC42E0922C0AFE7D008B7336 /* Extension */,
 				BC42E0872C0AF30B008B7336 /* TabBar */,
 				BC42E0882C0AF817008B7336 /* Onboarding */,
@@ -220,15 +228,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		BC42E0A62C0B10C7008B7336 /* If */ = {
-			isa = PBXGroup;
-			children = (
-				BC42E0AC2C0B1A4B008B7336 /* Component */,
-				BC42E0A42C0B0D5B008B7336 /* IfView.swift */,
-			);
-			path = If;
-			sourceTree = "<group>";
-		};
 		BC42E0A92C0B1893008B7336 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,16 +235,6 @@
 				BC42E0AA2C0B18BB008B7336 /* MypageView.swift */,
 			);
 			path = Mypage;
-			sourceTree = "<group>";
-		};
-		BC42E0AC2C0B1A4B008B7336 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				BC42E0AD2C0B1AB6008B7336 /* IfTopBar.swift */,
-				BC42E0AF2C0B1AE9008B7336 /* SegmentedControl.swift */,
-				BC42E0B12C0B1B9E008B7336 /* FloatingButton.swift */,
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 		BC42E0B32C0B1C1A008B7336 /* Component */ = {
@@ -282,11 +271,42 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BC42E0CF2C0B4A04008B7336 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0A42C0B0D5B008B7336 /* IfView.swift */,
+				BC42E0AD2C0B1AB6008B7336 /* IfTopBar.swift */,
+				BC42E0AF2C0B1AE9008B7336 /* SegmentedControl.swift */,
+				BC42E0B12C0B1B9E008B7336 /* FloatingButton.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		BC42E0D32C0B4A09008B7336 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0D02C0B4A09008B7336 /* FloatingButton.swift */,
+				BC42E0D12C0B4A09008B7336 /* IfTopBar.swift */,
+				BC42E0D22C0B4A09008B7336 /* SegmentedControl.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		BC42E0D52C0B4A09008B7336 /* If */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0D32C0B4A09008B7336 /* Component */,
+				BC42E0D42C0B4A09008B7336 /* IfView.swift */,
+			);
+			path = If;
+			sourceTree = "<group>";
+		};
 		BC653D542C0ADF190058AD4B = {
 			isa = PBXGroup;
 			children = (
 				BC653D5F2C0ADF1A0058AD4B /* IP-iOS */,
 				BC653D5E2C0ADF190058AD4B /* Products */,
+				BC42E0CF2C0B4A04008B7336 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -406,12 +426,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */,
+				BC42E0D82C0B4A09008B7336 /* SegmentedControl.swift in Sources */,
 				BC42E0CB2C0B4311008B7336 /* Color+Extension.swift in Sources */,
+				BC42E0D62C0B4A09008B7336 /* FloatingButton.swift in Sources */,
 				642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */,
 				642CB8592C0B0978001FC5D5 /* VoteHeader.swift in Sources */,
 				BC42E0C92C0B427D008B7336 /* IPTextField.swift in Sources */,
 				BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */,
 				642CB85A2C0B0978001FC5D5 /* Home.swift in Sources */,
+				BC42E0D92C0B4A09008B7336 /* IfView.swift in Sources */,
 				561DD24A2C0B107D00C662E2 /* AddVotingView.swift in Sources */,
 				BC42E0A52C0B0D5B008B7336 /* IfView.swift in Sources */,
 				561DD24C2C0B108D00C662E2 /* AddVotingViewController.swift in Sources */,
@@ -428,6 +451,7 @@
 				BC42E0B02C0B1AE9008B7336 /* SegmentedControl.swift in Sources */,
 				BC42E0CD2C0B4547008B7336 /* Constant.swift in Sources */,
 				642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */,
+				BC42E0D72C0B4A09008B7336 /* IfTopBar.swift in Sources */,
 				BC42E0B22C0B1B9E008B7336 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
