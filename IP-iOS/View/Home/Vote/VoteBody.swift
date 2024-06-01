@@ -9,15 +9,15 @@ import SwiftUI
 
 struct VoteBody: View {
     
-   
+    @ObservedObject var voteViewModel : VoteViewModel
     
     var body: some View {
         VStack(alignment:.leading, content: {
             
-            VoteButton()
+            VoteButton(voteViewModel: voteViewModel)
             
             VStack(content: {
-                Text("NN 명 참여")
+                Text("\(voteViewModel.voteBodyParticipantCount) 명 참여")
             })
             
             
@@ -27,5 +27,5 @@ struct VoteBody: View {
 }
 
 #Preview {
-    VoteBody()
+    VoteBody(voteViewModel: VoteViewModel())
 }
