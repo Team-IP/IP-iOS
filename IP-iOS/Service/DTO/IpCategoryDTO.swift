@@ -37,6 +37,29 @@ struct IfCategoryDTO: Codable, Identifiable, Equatable {
     let prize: String?
     let endAt: String
     let voteCount: Int
+    var content: String?
     let category: String
+    let ip: Bool
+}
+
+// 전체 응답 구조
+struct SurveyDetailResponseDTO: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: SurveyDetailDTO
+}
+
+// 세부 설문 항목
+struct SurveyDetailDTO: Codable {
+    let surveyId: Int
+    let title: String
+    let content: String?
+    let firstOption: String
+    let secondOption: String
+    let ipAmount: Int?
+    let prize: String?
+    let endAt: String
+    let voteCount: Int
     let ip: Bool
 }

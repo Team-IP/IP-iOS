@@ -37,7 +37,18 @@ struct Home: View {
                     
                     // 투표 Cell View
                     ForEach(ifCategories) { item in
-                        VoteCell(voteViewModel: viewModel)
+                        VoteCell(voteViewModel: VoteViewModel(
+                            isLoading: true,
+                            voteHeaderTitle: item.title,
+                             voteHeaderTimeremaining: "2024-07-01까지 참여해보세요🔥",
+                            voteHeaderIPGoods: "\(item.ipAmount ?? 0)잎",
+                            voteBodyParticipantCount: "\(item.voteCount)명 참여",
+                            voteDetaildescription: item.content ?? "",
+                            voteChoiceFirst: item.firstOption,
+                            voteChoiceSecond: item.secondOption,
+                             isFirstButtonSelected: true,
+                             isSecondButtonSelected: false
+                        ))
                             .scrollTransition(
                                 // . interactive 말고도 다양한 설정 값이 있음
                                 topLeading: .interactive,
@@ -53,11 +64,6 @@ struct Home: View {
                                     }
                                 }
                     }
-                    
-                }
-                .refreshable {
-                    pageNumber = 0
-                    await refreshData()
                 }
             }
             .onAppear() {

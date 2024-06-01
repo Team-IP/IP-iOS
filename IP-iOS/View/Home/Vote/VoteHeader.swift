@@ -11,30 +11,31 @@ struct VoteHeader: View {
     @ObservedObject var voteViewModel : VoteViewModel
     
     var body: some View {
-        HStack(content: {
+//        HStack(content: {
             VStack(alignment: .leading, content: {
-                Text(voteViewModel.voteHeaderTitle)
-                    .bold()
-                    .font(.title2)
+                HStack {
+                    Text(voteViewModel.voteHeaderTitle)
+                        .bold()
+                        .setDefaultFont(size: 18, weight: .bold)
+                    Spacer()
+                    HStack(content: {
+                        Image("goods-img")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15, height: 15)
+                        Text(voteViewModel.voteHeaderIPGoods)
+                            .setTypo(.body3b)
+                            .foregroundColor(.ipPrimary)
+                    })
+                }
                 Text(voteViewModel.voteHeaderTimeremaining)
+                    .setTypo(.body2)
+                    .foregroundColor(.gray)
                 
               
             })
-            Spacer()
-            
-            VStack {
-                HStack(content: {
-                    Image("goods-img")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20)
-                    Text(voteViewModel.voteHeaderIPGoods)
-                        .font(.caption)
-                })
-               
-                
-            }
-        })  //:HSTACK
+            .frame(maxWidth: .infinity)
+//        })  :HSTACK
     }
 }
 
