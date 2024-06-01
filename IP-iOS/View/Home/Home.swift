@@ -40,7 +40,14 @@ struct Home: View {
                         
                         // 투표 Cell View
                         ForEach(ifCategories) { item in
-                            VoteCell(voteViewModel: VoteViewModel(
+                            VoteCell(onTap: {
+                                print("tap tap")
+                                if let token = token {
+                                    print("로그인 상태")
+                                } else {
+                                    isOpenSheet = true
+                                }
+                            }, voteViewModel: VoteViewModel(
                                 isLoading: true,
                                 voteHeaderTitle: item.title,
                                 voteHeaderTimeremaining: "2024-07-01까지 참여해보세요🔥",
@@ -51,7 +58,9 @@ struct Home: View {
                                 voteChoiceSecond: item.secondOption,
                                 isFirstButtonSelected: true,
                                 isSecondButtonSelected: false
-                            ))
+                                
+                            )
+                                     )
                             .scrollTransition(
                                 // . interactive 말고도 다양한 설정 값이 있음
                                 topLeading: .interactive,
@@ -70,11 +79,6 @@ struct Home: View {
                     }
                 }
                 .onAppear() {
-                    if let token = token {
-                        print("로그인 상태")
-                    } else {
-                        isOpenSheet = true
-                    }
                     
                     pageNumber = 0
                     Task {

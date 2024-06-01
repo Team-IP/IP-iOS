@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VoteButton: View {
     
+    var onTap: (() -> Void)?
     @ObservedObject var voteViewModel : VoteViewModel
     
   
@@ -17,6 +18,7 @@ struct VoteButton: View {
         VStack(alignment: .center) {
             // 찬성
             Button(action: {
+                onTap?()
                 voteViewModel.isFirstButtonSelected = true
                 voteViewModel.isSecondButtonSelected = false
             }) {
@@ -55,6 +57,7 @@ struct VoteButton: View {
             
             
             Button(action: {
+                onTap?()
                 voteViewModel.isFirstButtonSelected = false
                 voteViewModel.isSecondButtonSelected = true
             }) {

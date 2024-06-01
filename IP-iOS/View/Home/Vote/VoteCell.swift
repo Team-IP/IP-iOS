@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VoteCell: View {
     
+    var onTap: (() -> Void)?
     @State var showSheet: Bool = false
     
     @ObservedObject var voteViewModel: VoteViewModel
@@ -24,7 +25,7 @@ struct VoteCell: View {
                 
                 
                 // 투표 항목 List View
-                VoteBody(voteViewModel: voteViewModel)
+                VoteBody(onTap: onTap, voteViewModel: voteViewModel)
 //                    .padding(.horizontal, 60)
                 
                 
@@ -40,7 +41,15 @@ struct VoteCell: View {
 
         
         .onTapGesture {
-            showSheet.toggle()
+            onTap?()
+            print("onTap")
+
+            if UserDefaults.standard.string(forKey: "token") != nil {
+                        showSheet.toggle()
+                    }
+                    
+
+            
         }
         .sheet(isPresented: $showSheet) {
             VStack {
