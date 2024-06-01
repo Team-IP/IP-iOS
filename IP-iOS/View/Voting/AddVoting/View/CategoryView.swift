@@ -11,22 +11,27 @@ final class CategoryView: UIView {
     // MARK: - View
     lazy var allButton = UIButton().then {
         $0.setImage(UIImage(named: "ic_all_clear"), for: .normal)
+        $0.tag = 0
     }
     
     lazy var loveButton = UIButton().then {
         $0.setImage(UIImage(named: "ic_love_clear"), for: .normal)
+        $0.tag = 1
     }
     
     lazy var economyButton = UIButton().then {
         $0.setImage(UIImage(named: "ic_economy_clear"), for: .normal)
+        $0.tag = 2
     }
     
     lazy var sportsButton = UIButton().then {
         $0.setImage(UIImage(named: "ic_sports_clear"), for: .normal)
+        $0.tag = 3
     }
     
     lazy var dailyButton = UIButton().then {
         $0.setImage(UIImage(named: "ic_daily_clear"), for: .normal)
+        $0.tag = 4
     }
     
     // MARK: - Init

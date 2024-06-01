@@ -62,9 +62,11 @@ final class AddVotingView: UIView {
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
-        $0.textContainerInset = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
+        $0.textContainerInset = UIEdgeInsets(top: 13.0, left: 17.0, bottom: 16.0, right: 23.0)
         
+        $0.text = "지금 무슨 상황인가요?!"
         $0.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        $0.textColor = .placeholderText
     }
     
     lazy var descriptionTextCountLabel = UILabel().then {
@@ -139,12 +141,7 @@ final class AddVotingView: UIView {
         $0.backgroundColor = .black
     }
     
-//    // 베팅 잎
-//    private lazy var bettingTextFieldView = UIView().then {
-//        $0.layer.borderWidth = 1
-//        $0.layer.borderColor = UIColor.green.cgColor
-//    }
-//    
+    // 베팅 잎
     lazy var bettingTextField = UITextField().then {
         $0.placeholder = "베팅 잎을 입력해주세요."
         $0.autocapitalizationType = .none
@@ -169,23 +166,6 @@ final class AddVotingView: UIView {
         $0.setDefaultFont(size: 10, weight: .regular)
         $0.textColor = UIColor(red: 0.7686, green: 0.7608, blue: 0.7608, alpha: 1.0)
     }
-
-//    // 카테고리
-//    private lazy var categoryTextFieldView = UIView().then {
-//        $0.layer.borderWidth = 1
-//        $0.layer.borderColor = UIColor.green.cgColor
-//    }
-//    
-//    lazy var categoryTextField = UITextField().then {
-//        $0.placeholder = "카테고리를 선택해주세요."
-//        $0.autocapitalizationType = .none
-//        $0.autocorrectionType = .no
-//        $0.spellCheckingType = .no
-//    }
-//    
-//    private lazy var categoryArrowIcon = UIImageView().then {
-//        $0.image = UIImage(systemName: "arrow.down")
-//    }
     
     // 바텀 화이트 뷰
     lazy var bottomView = UIView().then {
@@ -249,15 +229,11 @@ final class AddVotingView: UIView {
             deadLineTextFieldView,
             blackLine1,
 
-//            // 베팅 잎
+            // 베팅 잎
             bettingTextField,
-//            bettingTextFieldView,
             bettingWarningLabel,
             bettingLabel,
             blackLine2
-//
-//            // 카테고리
-//            categoryTextFieldView
         ])
         
         titleTextFieldView.addSubview(titleTextField)
@@ -265,9 +241,6 @@ final class AddVotingView: UIView {
         secondVotingItemRoundView.addSubview(secondVotingItemTextField)
         deadLineTextFieldView.addSubview(deadLineTextField)
         deadLineTextFieldView.addSubview(calendarIcon)
-//        bettingTextFieldView.addSubview(bettingTextField)
-//        categoryTextFieldView.addSubview(categoryTextField)
-//        categoryTextFieldView.addSubview(categoryArrowIcon)
         
         bottomView.addSubview(uploadButton)
     }
@@ -394,17 +367,7 @@ final class AddVotingView: UIView {
             make.leading.trailing.equalTo(titleTextFieldView)
         }
         
-//        // 베팅 잎
-//        bettingTextFieldView.snp.makeConstraints { make in
-//            make.top.equalTo(deadLineTextFieldView.snp.bottom).offset(40)
-//            make.leading.trailing.equalTo(titleTextFieldView)
-//            make.height.equalTo(50)
-//        }
-//        
-//        bettingTextField.snp.makeConstraints { make in
-//            make.edges.equalTo(bettingTextFieldView).inset(5)
-//        }
-        
+        // 베팅 잎
         bettingTextField.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.top.equalTo(blackLine1.snp.bottom).offset(30)
@@ -414,7 +377,6 @@ final class AddVotingView: UIView {
         
         bettingLabel.snp.makeConstraints { make in
             make.centerY.equalTo(bettingTextField)
-//            make.top.equalTo(blackLine1.snp.bottom).offset(30)
             make.trailing.equalTo(contentView).inset(44)
             make.width.equalTo(98)
         }
@@ -431,30 +393,6 @@ final class AddVotingView: UIView {
             make.leading.equalTo(contentView).inset(35)
             make.bottom.equalTo(contentView).offset(-27)
         }
-//
-//        bettingWarningLabel.snp.makeConstraints { make in
-//            make.top.equalTo(bettingTextFieldView.snp.bottom).offset(5)
-//            make.leading.trailing.equalTo(titleTextFieldView)
-//        }
-//        
-//        // 카테고리
-//        categoryTextFieldView.snp.makeConstraints { make in
-//            make.top.equalTo(bettingWarningLabel.snp.bottom).offset(40)
-//            make.leading.trailing.equalTo(titleTextFieldView)
-//            make.height.equalTo(50)
-//            make.bottom.equalTo(contentView)
-//        }
-//        
-//        categoryTextField.snp.makeConstraints { make in
-//            make.edges.equalTo(categoryTextFieldView).inset(5)
-//        }
-//        
-//        categoryArrowIcon.snp.makeConstraints { make in
-//            make.size.equalTo(20)
-//            make.centerY.equalTo(categoryTextFieldView)
-//            make.trailing.equalTo(categoryTextFieldView).inset(5)
-//        }
-        
         
         // 바텀 흰색 뷰
         bottomView.snp.makeConstraints { make in
