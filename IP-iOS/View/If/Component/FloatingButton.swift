@@ -20,33 +20,36 @@ struct FloatingButton: View {
                     Button(action: {
                         onTapNewVoteButton()
                     }) {
-                        VStack {
+                        VStack(spacing: 3) {
                             Text("새 투표 만들기")
-                            Text("+")
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(.white)
+                                .setTypo(.body3)
+                                .foregroundColor(.ipLine)
+                            Image("plus-navy-icon")
+                                .resizable()
+                                .frame(width: 25, height: 25)
                                 .padding()
-                                .frame(width: 50, height: 50)
-                                .background(Color.blue)
-                                .cornerRadius(25)
+                                .background(.ipPrimary)
+                                .cornerRadius(30)
                         }
                     }
                     
                     Button(action: {
                         onTapMyVoteButton()
                     }) {
-                        VStack {
+                        VStack(spacing: 3) {
                             Text("내가 만든 투표")
-                            Text("+")
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(.white)
+                                .setTypo(.body3)
+                                .foregroundColor(.ipLine)
+                            Image("vote-icon")
+                                .resizable()
+                                .frame(width: 25, height: 25)
                                 .padding()
-                                .frame(width: 50, height: 50)
-                                .background(Color.blue)
-                                .cornerRadius(25)
+                                .background(.ipPrimary)
+                                .cornerRadius((30))
                         }
                     }
                 }.transition(.move(edge: .trailing))
+                    .padding([.trailing], PAGE_PADDING)
             }
             
             Button(action: {
@@ -54,14 +57,14 @@ struct FloatingButton: View {
                     isFloatingButtonOn.toggle()
                 }
             }) {
-                Text("+")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.white)
+                Image("plus-green-icon")
+                    .resizable()
+                    .frame(width: 25, height: 25)
                     .padding()
-                    .frame(width: 50, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(25)
+                    .background(.ipLine)
+                    .cornerRadius(30)
             }
+            .padding([.bottom, .trailing], PAGE_PADDING)
         }
     }
 }
