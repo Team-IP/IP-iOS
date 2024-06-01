@@ -12,7 +12,7 @@ struct OnboardingView: View {
         case signup, login
     }
     
-    @State var onboardingType: OnboardingType = .login
+    @State private var onboardingType: OnboardingType = .login
     
     var body: some View {
         onboardingTypeButtonGroup
@@ -25,7 +25,7 @@ struct OnboardingView: View {
         }
     }
     
-    var onboardingTypeButtonGroup: some View {
+    private var onboardingTypeButtonGroup: some View {
         HStack {
             Button(action: {
                 self.onboardingType = .signup
@@ -49,9 +49,9 @@ struct OnboardingView: View {
 }
 
 struct SignupView: View {
-    @State var nickname: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var nickname: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         TextField("Nickname", text: $nickname)
@@ -68,8 +68,8 @@ struct SignupView: View {
 }
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     
     var body: some View {
