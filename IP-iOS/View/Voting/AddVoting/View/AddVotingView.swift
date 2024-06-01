@@ -11,6 +11,8 @@ import SnapKit
 
 final class AddVotingView: UIView {
     // MARK: - View
+    lazy var datePicker = UIDatePicker()
+    
     private lazy var scrollView = UIScrollView().then {
         $0.keyboardDismissMode = .onDrag // 스크롤 시 키보드 숨김
     }
@@ -106,6 +108,7 @@ final class AddVotingView: UIView {
     }
     
     lazy var deadLineTextField = UITextField().then {
+        $0.tintColor = .clear
         $0.placeholder = "투표 마감일을 설정해주세요"
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
@@ -363,3 +366,4 @@ extension UIView {
         }
     }
 }
+

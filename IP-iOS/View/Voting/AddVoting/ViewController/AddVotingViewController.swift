@@ -37,6 +37,7 @@ final class AddVotingViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enableAutoToolbar = true
     }
 }
 
@@ -45,17 +46,36 @@ extension AddVotingViewController {
     private func setupTextField() {
         let view = self.addVotingView
         
-        [view.titleTextField, 
+        [view.titleTextField,
          view.firstVotingItemTextField,
          view.secondVotingItemTextField,
          view.deadLineTextField,
          view.bettingTextField,
          view.categoryTextField].forEach { $0.delegate = self }
+        
+        setupDatePicker(for: view.deadLineTextField, datePicker: view.datePicker) // 날짜 피커뷰 설정
+    }
+    
+    // 데이트 피커뷰
+    private func setupDatePicker(for textField: UITextField, datePicker: UIDatePicker) {
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "ko_KR")
+        datePicker.calendar = Calendar(identifier: .gregorian)
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.addTarget(self,
+                             action: #selector(dateChanged(_:)),
+                             for: .valueChanged)
+        datePicker.minimumDate = Date() // 현재 날짜 이전은 선택 불가하게 설정
+        
+        textField.inputView = datePicker
+        textField.inputAccessoryView = createToolbar()
     }
     
     // 텍스트뷰 설정
     private func setupTextView() {
-        self.addVotingView.descriptionTextView.delegate = self
+        let tv = self.addVotingView.descriptionTextView
+        tv.delegate = self
+        tv.inputAccessoryView = createToolbar()
     }
     
     // 버튼 설정
@@ -64,12 +84,42 @@ extension AddVotingViewController {
                                                   action: #selector(uploadButtonTapped),
                                                   for: .touchUpInside)
     }
+    
+    // 툴바에 완료버튼 삽입
+    private func createToolbar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "완료",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(dismissPickerView))
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        return toolbar
+    }
 }
 
 // MARK: - Actions
 extension AddVotingViewController {
+    // 업로드 버튼
     @objc private func uploadButtonTapped() {
         print("업로드버튼 눌림")
+    }
+    
+    // 데이트 피커뷰
+    @objc private func dateChanged(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        addVotingView.deadLineTextField.text = formatter.string(from: sender.date)
+    }
+    
+    // 데이트 피커뷰 완료버튼
+    @objc private func dismissPickerView() {
+        view.endEditing(true)
     }
 }
 
