@@ -15,21 +15,23 @@ struct IPTextField: View {
     var body: some View {
         if isSecure {
             SecureField(placeholder, text: $text)
+                .foregroundColor(.ipBlack)
                 .padding()
                 .background(.ipGray01)
                 .cornerRadius(10)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(.ipGray02, lineWidth: 1)
                 )
                 .foregroundColor(.gray)
         } else {
             TextField(placeholder, text: $text)
+                .foregroundColor(.ipBlack)
                 .padding()
                 .background(.ipGray01)
                 .cornerRadius(10)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(.ipGray02, lineWidth: 1)
                 )
                 .foregroundColor(.gray)

@@ -30,7 +30,7 @@ struct SegmentedControl: View {
                             .background(
                                 selectedSegment == segment
                                 ? Color.ipLine
-                                : Color.ipGray01
+                                : Color.ipBackground
                             )
                             .foregroundColor(
                                 selectedSegment == segment 

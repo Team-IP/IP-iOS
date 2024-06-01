@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VoteCell: View {
+    
     @State var showSheet: Bool = false
     
     var body: some View {
