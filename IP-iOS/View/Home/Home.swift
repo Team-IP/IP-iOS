@@ -18,53 +18,55 @@ struct Home: View {
     @StateObject var viewModel = VoteViewModel()
     
     var body: some View {
-        
-        VStack(content: {
-            
-            // HomeViewHeader
-            HomeViewHeader()
-            
-            
-        })
-        
-        ScrollView(.vertical) {
-            LazyVStack (spacing: 20) {
+        VStack {
+            VStack(content: {
                 
-                Text("지금 Hot🔥한 IF")
-                    .font(.title)
-                    .bold()
-                    .padding()
+                // HomeViewHeader
+                HomeViewHeader()
                 
-                // 투표 Cell View
-                ForEach(ifCategories) { item in
-                    VoteCell()
-                        .scrollTransition(
-                            // . interactive 말고도 다양한 설정 값이 있음
-                            topLeading: .interactive,
-                            bottomTrailing: .animated) { view, phase in
-                                view
-                                    .opacity(1 - (phase.value < 0 ? -phase.value : phase.value))
-                            }
-                            .onAppear {
-                                if item == ifCategories.last {
-                                    Task {
-                                        await loadMoreData()
+                
+            })
+            
+            ScrollView(.vertical) {
+                LazyVStack (spacing: 20) {
+                    
+                    Text("지금 Hot🔥한 IF")
+                        .font(.title)
+                        .bold()
+                        .padding()
+                    
+                    // 투표 Cell View
+                    ForEach(ifCategories) { item in
+                        VoteCell(voteViewModel: viewModel)
+                            .scrollTransition(
+                                // . interactive 말고도 다양한 설정 값이 있음
+                                topLeading: .interactive,
+                                bottomTrailing: .animated) { view, phase in
+                                    view
+                                        .opacity(1 - (phase.value < 0 ? -phase.value : phase.value))
+                                }
+                                .onAppear {
+                                    if item == ifCategories.last {
+                                        Task {
+                                            await loadMoreData()
+                                        }
                                     }
                                 }
-                            }
+                    }
+                    
                 }
-                
+                .refreshable {
+                    pageNumber = 0
+                    await refreshData()
+                }
             }
-            .refreshable {
-                pageNumber = 0
-                await refreshData()
+            .onAppear() {
+                Task {
+                    await refreshData()
+                }
             }
         }
-        .onAppear() {
-            Task {
-                await refreshData()
-            }
-        }
+        .ignoresSafeArea()
         
     }
     

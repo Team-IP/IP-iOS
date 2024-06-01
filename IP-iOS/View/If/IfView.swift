@@ -42,6 +42,8 @@ struct IfView: View {
     @State private var ifCategories: [IfCategoryDTO] = []
     @State private var pageNumber: Int = 0
     
+    @StateObject var viewModel = VoteViewModel()
+    
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
@@ -51,7 +53,7 @@ struct IfView: View {
                     List {
 
                         ForEach(ifCategories) { item in
-                            VoteCell()
+                            VoteCell(voteViewModel: viewModel)
                                 .frame(height: 300)
                                 .listRowSeparator(.hidden)
                                 .background(Color.clear)
