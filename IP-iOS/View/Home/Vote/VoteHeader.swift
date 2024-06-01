@@ -23,8 +23,16 @@ struct VoteHeader: View {
             Spacer()
             
             VStack {
-                Text(voteViewModel.voteHeaderIPGoods)
-                Text(voteViewModel.voteHeaderIPcount)
+                HStack(content: {
+                    Image("goods-img")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20)
+                    Text(voteViewModel.voteHeaderIPGoods)
+                        .font(.caption)
+                })
+               
+                
             }
         })  //:HSTACK
     }

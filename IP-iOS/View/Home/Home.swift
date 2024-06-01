@@ -15,6 +15,7 @@ struct Home: View {
     @State private var isRefreshing: Bool = false
     @State private var ifCategories: [IfCategoryDTO] = []
     @State private var pageNumber: Int = 0
+    @StateObject var viewModel = VoteViewModel()
     
     var body: some View {
         

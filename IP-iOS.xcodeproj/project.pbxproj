@@ -25,6 +25,8 @@
 		642CB86B2C0B71EE001FC5D5 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */; };
 		642CB86D2C0B75DF001FC5D5 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86C2C0B75DF001FC5D5 /* VoteButton.swift */; };
 		642CB8702C0B8F5A001FC5D5 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB86F2C0B8F5A001FC5D5 /* VoteViewModel.swift */; };
+		642CB8722C0BA4E0001FC5D5 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8712C0BA4E0001FC5D5 /* HomeService.swift */; };
+		642CB8752C0BA68D001FC5D5 /* VoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8742C0BA68D001FC5D5 /* VoteModel.swift */; };
 		BC246AED2C0AE0B40071C358 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEC2C0AE0B40071C358 /* Alamofire */; };
 		BC246AF02C0AE0CD0071C358 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEF2C0AE0CD0071C358 /* SnapKit */; };
 		BC42E0862C0AEB60008B7336 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC42E0852C0AEB60008B7336 /* IQKeyboardManagerSwift */; };
@@ -84,6 +86,8 @@
 		642CB86A2C0B71EE001FC5D5 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		642CB86C2C0B75DF001FC5D5 /* VoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		642CB86F2C0B8F5A001FC5D5 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
+		642CB8712C0BA4E0001FC5D5 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		642CB8742C0BA68D001FC5D5 /* VoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteModel.swift; sourceTree = "<group>"; };
 		BC42E0892C0AF878008B7336 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		BC42E0952C0AFFA6008B7336 /* NotoSansKR-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.ttf"; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				BC42E0F02C0BA0F9008B7336 /* DTO */,
 				561DD2382C0AF10600C662E2 /* ServiceTest.swift */,
 				BC42E0EA2C0B858D008B7336 /* MemberService.swift */,
+				642CB8712C0BA4E0001FC5D5 /* HomeService.swift */,
 				561DD2522C0BA0C400C662E2 /* AddVotingService.swift */,
 				BC42E0F52C0BAA19008B7336 /* IfCategoryService.swift */,
 			);
@@ -206,6 +211,7 @@
 		642CB8542C0B0978001FC5D5 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
+				642CB8732C0BA67D001FC5D5 /* Model */,
 				642CB86E2C0B8F3D001FC5D5 /* ViewModel */,
 				642CB8512C0B0978001FC5D5 /* VoteBody.swift */,
 				642CB8522C0B0978001FC5D5 /* VoteCell.swift */,
@@ -260,6 +266,14 @@
 				642CB86F2C0B8F5A001FC5D5 /* VoteViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		642CB8732C0BA67D001FC5D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				642CB8742C0BA68D001FC5D5 /* VoteModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC42E0872C0AF30B008B7336 /* TabBar */ = {
@@ -533,6 +547,7 @@
 				561DD2512C0B8A4900C662E2 /* CategoryView.swift in Sources */,
 				642CB8602C0B3395001FC5D5 /* VoteParticipated.swift in Sources */,
 				BC42E0BA2C0B3547008B7336 /* LeafStorageView.swift in Sources */,
+				642CB8722C0BA4E0001FC5D5 /* HomeService.swift in Sources */,
 				642CB86B2C0B71EE001FC5D5 /* HomeViewHeader.swift in Sources */,
 				BC42E0BD2C0B3671008B7336 /* LeafSellRow.swift in Sources */,
 				BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */,
@@ -543,6 +558,7 @@
 				BC42E0EB2C0B858D008B7336 /* MemberService.swift in Sources */,
 				BC42E0F42C0BA951008B7336 /* IpCategoryDTO.swift in Sources */,
 				BC42E0B52C0B1C30008B7336 /* MenuRow.swift in Sources */,
+				642CB8752C0BA68D001FC5D5 /* VoteModel.swift in Sources */,
 				BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */,
 				642CB8702C0B8F5A001FC5D5 /* VoteViewModel.swift in Sources */,
 				642CB8632C0B37B4001FC5D5 /* MySettingView.swift in Sources */,
