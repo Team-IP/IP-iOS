@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561DD2392C0AF10600C662E2 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD2382C0AF10600C662E2 /* ServiceTest.swift */; };
+		561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD23A2C0AF10D00C662E2 /* TabBarController.swift */; };
 		561DD23B2C0AF10D00C662E2 /* ViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DD23A2C0AF10D00C662E2 /* ViewTest.swift */; };
 		642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8512C0B0978001FC5D5 /* VoteBody.swift */; };
 		642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642CB8522C0B0978001FC5D5 /* VoteCell.swift */; };
@@ -16,6 +17,9 @@
 		BC246AED2C0AE0B40071C358 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEC2C0AE0B40071C358 /* Alamofire */; };
 		BC246AF02C0AE0CD0071C358 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC246AEF2C0AE0CD0071C358 /* SnapKit */; };
 		BC42E0862C0AEB60008B7336 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC42E0852C0AEB60008B7336 /* IQKeyboardManagerSwift */; };
+		BC42E08A2C0AF878008B7336 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0892C0AF878008B7336 /* OnboardingView.swift */; };
+		BC42E0942C0AFE8D008B7336 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */; };
+		BC42E0A22C0B0635008B7336 /* IfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC42E0A12C0B0635008B7336 /* IfView.swift */; };
 		BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */; };
 		BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */; };
 		BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC653D642C0ADF1A0058AD4B /* ViewController.swift */; };
@@ -26,6 +30,19 @@
 
 /* Begin PBXFileReference section */
 		561DD2382C0AF10600C662E2 /* ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
+		561DD23A2C0AF10D00C662E2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BC42E0892C0AF878008B7336 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		BC42E0952C0AFFA6008B7336 /* NotoSansKR-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.ttf"; sourceTree = "<group>"; };
+		BC42E0962C0AFFA6008B7336 /* NotoSansKR-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BC42E0972C0AFFA6008B7336 /* NotoSansKR-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.ttf"; sourceTree = "<group>"; };
+		BC42E0982C0AFFA6008B7336 /* NotoSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.ttf"; sourceTree = "<group>"; };
+		BC42E0992C0AFFA7008B7336 /* NotoSansKR-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BC42E09A2C0AFFA7008B7336 /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
+		BC42E09B2C0AFFA7008B7336 /* NotoSansKR-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.ttf"; sourceTree = "<group>"; };
+		BC42E09C2C0AFFA7008B7336 /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
+		BC42E09D2C0AFFA7008B7336 /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
+		BC42E0A12C0B0635008B7336 /* IfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfView.swift; sourceTree = "<group>"; };
 		561DD23A2C0AF10D00C662E2 /* ViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTest.swift; sourceTree = "<group>"; };
 		642CB8512C0B0978001FC5D5 /* VoteBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteBody.swift; sourceTree = "<group>"; };
 		642CB8522C0B0978001FC5D5 /* VoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteCell.swift; sourceTree = "<group>"; };
@@ -58,6 +75,10 @@
 		561DD2362C0AF0F200C662E2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC42E0922C0AFE7D008B7336 /* Extension */,
+				BC42E0872C0AF30B008B7336 /* TabBar */,
+				BC42E0882C0AF817008B7336 /* Onboarding */,
+				BC42E09E2C0B0614008B7336 /* IfView */,
 				642CB8562C0B0978001FC5D5 /* Home */,
 				561DD23A2C0AF10D00C662E2 /* ViewTest.swift */,
 			);
@@ -72,6 +93,52 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		BC42E0872C0AF30B008B7336 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				561DD23A2C0AF10D00C662E2 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BC42E0882C0AF817008B7336 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0892C0AF878008B7336 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BC42E08B2C0AFD94008B7336 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0952C0AFFA6008B7336 /* NotoSansKR-Black.ttf */,
+				BC42E0982C0AFFA6008B7336 /* NotoSansKR-Bold.ttf */,
+				BC42E0962C0AFFA6008B7336 /* NotoSansKR-ExtraBold.ttf */,
+				BC42E0992C0AFFA7008B7336 /* NotoSansKR-ExtraLight.ttf */,
+				BC42E09C2C0AFFA7008B7336 /* NotoSansKR-Light.ttf */,
+				BC42E0972C0AFFA6008B7336 /* NotoSansKR-Medium.ttf */,
+				BC42E09D2C0AFFA7008B7336 /* NotoSansKR-Regular.ttf */,
+				BC42E09A2C0AFFA7008B7336 /* NotoSansKR-SemiBold.ttf */,
+				BC42E09B2C0AFFA7008B7336 /* NotoSansKR-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		BC42E0922C0AFE7D008B7336 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0932C0AFE8D008B7336 /* Font+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BC42E09E2C0B0614008B7336 /* IfView */ = {
+			isa = PBXGroup;
+			children = (
+				BC42E0A12C0B0635008B7336 /* IfView.swift */,
+			);
+			path = IfView;
 		642CB8542C0B0978001FC5D5 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,14 +177,15 @@
 		BC653D5F2C0ADF1A0058AD4B /* IP-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				561DD2372C0AF0F600C662E2 /* Service */,
-				561DD2362C0AF0F200C662E2 /* View */,
-				BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */,
 				BC653D622C0ADF1A0058AD4B /* SceneDelegate.swift */,
+				BC653D602C0ADF1A0058AD4B /* AppDelegate.swift */,
 				BC653D642C0ADF1A0058AD4B /* ViewController.swift */,
 				BC653D692C0ADF1B0058AD4B /* Assets.xcassets */,
 				BC653D6B2C0ADF1B0058AD4B /* LaunchScreen.storyboard */,
 				BC653D6E2C0ADF1B0058AD4B /* Info.plist */,
+				BC42E08B2C0AFD94008B7336 /* Font */,
+				561DD2372C0AF0F600C662E2 /* Service */,
+				561DD2362C0AF0F200C662E2 /* View */,
 			);
 			path = "IP-iOS";
 			sourceTree = "<group>";
@@ -204,13 +272,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561DD23B2C0AF10D00C662E2 /* TabBarController.swift in Sources */,
+				BC42E0A22C0B0635008B7336 /* IfView.swift in Sources */,
 				561DD23B2C0AF10D00C662E2 /* ViewTest.swift in Sources */,
 				642CB8572C0B0978001FC5D5 /* VoteBody.swift in Sources */,
 				642CB8592C0B0978001FC5D5 /* VoteHeader.swift in Sources */,
 				BC653D652C0ADF1A0058AD4B /* ViewController.swift in Sources */,
 				642CB85A2C0B0978001FC5D5 /* Home.swift in Sources */,
 				561DD2392C0AF10600C662E2 /* ServiceTest.swift in Sources */,
+				BC42E08A2C0AF878008B7336 /* OnboardingView.swift in Sources */,
 				BC653D612C0ADF1A0058AD4B /* AppDelegate.swift in Sources */,
+				BC42E0942C0AFE8D008B7336 /* Font+Extension.swift in Sources */,
 				BC653D632C0ADF1A0058AD4B /* SceneDelegate.swift in Sources */,
 				642CB8582C0B0978001FC5D5 /* VoteCell.swift in Sources */,
 			);
