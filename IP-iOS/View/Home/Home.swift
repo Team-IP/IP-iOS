@@ -56,7 +56,7 @@ struct Home: View {
                                 voteDetaildescription: item.content ?? "",
                                 voteChoiceFirst: item.firstOption,
                                 voteChoiceSecond: item.secondOption,
-                                isFirstButtonSelected: true,
+                                isFirstButtonSelected: false,
                                 isSecondButtonSelected: false
                                 
                             )
